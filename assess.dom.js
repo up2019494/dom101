@@ -2,6 +2,68 @@
 
 QUnit.module("DOM");
 
+
+// turns an array-like into an array
+function arr(a) {
+  return Array.prototype.slice.call(a);
+}
+
+
+QUnit.test("findElementById",
+    function(assert) {
+        assert.ok(
+            typeof findElementById === "function",
+            "Write a function `findElementById` which, given one parameter called ID, returns the element that has that id."
+        );
+
+        assert.strictEqual(
+            findElementById('thisisaparagraph'),
+            window.thisisaparagraph
+        );
+
+        assert.strictEqual(
+            findElementById('selectus'),
+            window.selectus
+        );
+
+        assert.strictEqual(
+            findElementById('mustnotexist'),
+            null
+        );
+    }
+);
+
+
+QUnit.test("findElementByQuery",
+    function(assert) {
+        assert.ok(
+            typeof findElementByQuery === "function",
+            "Write a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('#thisisaparagraph')),
+            [ window.thisisaparagraph ]
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('#selectus *')),
+            arr(window.selectus.children)
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('.selectus')),
+            arr(window.selectus.getElementsByTagName('P'))
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('mustnotexist')),
+            []
+        );
+    }
+);
+
+
 QUnit.test("reverseList",
     function(assert) {
 
