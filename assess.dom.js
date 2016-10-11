@@ -13,14 +13,14 @@ QUnit.test("testMutateMainUsingDocument",
         mutateMain();
 
         assert.strictEqual(
-          main.firstElementChild.tagName,
+          window.main.firstElementChild.tagName,
           "P",
           "Use document.createElement to create a new paragraph element.  Append this paragraph to the `main` element."
         );
 
         assert.strictEqual(
           document.getElementById("example1"),
-          main.firstElementChild,
+          window.main.firstElementChild,
           "The element you create should be given the id attribute of `example1`."
         );
 
