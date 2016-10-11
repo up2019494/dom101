@@ -10,213 +10,212 @@
 <body>
     <div id="qunit">
     </div>
-    <div id="qunit-fixture">
-      <main id=main>
-      </main>
+
+    <main>
+    </main>
 
 
-      <div>
-        <h1>Find an element with simple criteria (e.g. we give you an ID)</h1>
-        <p id=thisisaparagraph>This is a paragraph.</>
+    <section>
+      <h1>Find an element with simple criteria (e.g. we give you an ID)</h1>
+      <p id=thisisaparagraph>This is a paragraph.</>
+    </section>
+
+
+
+    <section>
+      <h1>find all elements with more complex criteria (selector)</h1>
+
+      <p class=selectus>This is a paragraph.</>
+      <p class=selectus>This is also a paragraph.</>
+      <p class=selectus>This too is yet another paragraph.</>
+
+    </section>
+
+
+
+    <section>
+      <h1>add text to an element</h1>
+      <p id=ihavenotext></p>
+    </section>
+
+
+
+    <section>
+      <h1>replace text of an element</h1>
+      <p id=ihavetext>Replace me please!</p>
+    </section>
+
+
+
+    <section>
+      <h1>set the href and alt of an image</h1>
+      <p>placekitten.com and placebear.com are 'services' that serve pictures of kittens and bears in specific sizes.</p>
+      <img src=http://placekitten.com/400/200 alt="A kitten.">
+    </section>
+
+
+
+    <section>
+      <h1>set the class of an element</h1>
+      <p>In the beginning was the text, and the text was without class, and the developer gave unto it a class, and the class was `interesting`.</>
+    </section>
+
+
+
+    <section>
+      <h1>set the class of all elements that match some kind of selection criteria</h1>
+
+      <ul>
+        <li name=surprise>This is a surprising list item.</li>
+        <li name=surprise>Yeah, this too is surprising.</li>
+        <li name=surprise>&hellip;and this!  Surprise!</li>
+      </ul>
+
+    </section>
+
+
+
+    <section>
+      <h1>add a class to an element without affecting other classes it has</h1>
+      <p id=wantaborder class="greatcontent">I am a paragraph with great content, and what more could a paragraph want than an excellent border, as provided by the `excellence` class?</p>
+    </section>
+
+
+
+    <section>
+      <h1>remove a class from an element without affecting other classes it has</h1>
+
+
+      <p id=helpme class="greatcontent awesome downer">I am a paragraph with great content, however someone put a bit of a downer in my classes and with that removed I could be awesome.</p>
+    </section>
+
+
+
+    <section>
+      <h1>create a new element</h1>
+      <h1>set ID of an element</h1>
+      <div id=inserthere>
       </div>
+    </section>
 
 
 
-      <div>
-        <h1>find all elements with more complex criteria (selector)</h1>
+    <section>
+      <h1>add an element to the end of a list</h1>
+      <ul id=appendme>
+        <li>First list item
+        <li>Second list item
+        <li>Third list item
+      </ul>
+    </section>
 
-        <p class=selectus>This is a paragraph.</>
-        <p class=selectus>This is also a paragraph.</>
-        <p class=selectus>This too is yet another paragraph.</>
 
+
+    <section>
+      <h1>add an element to the start of a list</h1>
+      <ul id=prependme>
+        <li>First list item
+        <li>Second list item
+        <li>Third list item
+      </ul>
+    </section>
+
+
+    <section>
+      <h1>add an element to the middle of a list</h1>
+      <ul id=prependme>
+        <li>First list item
+        <li>Second list item
+        <li>Penultimate list item
+        <li>Last list item
+      </ul>
+    </section>
+
+
+
+    <section>
+      <h1>fill an empty list with the contents of an array</h1>
+      <div id=fillalisthere>
       </div>
+    </section>
 
 
-
-      <div>
-        <h1>add text to an element</h1>
-        <p id=ihavenotext></p>
+    <section>
+      <h1>fill an empty list with the contents of an array, in a given sort order</h1>
+      <div id=fillasortedlisthere>
       </div>
+    </section>
+
+
+    <section>
+      <h1>remove an element identified by ID</h1>
+      <p id=expungeme>Expunge me please!</p>
+    </section>
+
+
+    <section>
+      <h1>remove an element from an ordered list (by index)</h1>
+      <ol id=aniceorderedlist>
+        <li>First list item
+        <li>Second list item
+        <li>Remove me please
+        <li>Last list item
+      </ol>
+    </section>
+
+
+    <section id=noevens>
+      <h1>remove all elements matching some selection criteria</h1>
+      <p>I love you</p>
+      <p>I hate you</p>
+      <p>I love you</p>
+      <p>I hate you</p>
+      <p>I love you</p>
+      <p>I hate you</p>
+    </section>
 
 
 
-      <div>
-        <h1>replace text of an element</h1>
-        <p id=ihavetext>Replace me please!</p>
-      </div>
+    <section>
+      <h1>reverse the contents of a list</h1>
+      <ol id=reverseme>
+        <li>1
+        <li>2
+        <li>3
+        <li>4
+        <li>5
+      </ol>
+      <p>Blast off.
+    </section>
 
 
 
-      <div>
-        <h1>set the href and alt of an image</h1>
-        <p>placekitten.com and placebear.com are 'services' that serve pictures of kittens and bears in specific sizes.</p>
-        <img src=http://placekitten.com/400/200 alt="A kitten.">
-      </div>
+    <section>
+      <h1>move an element from one list to the end of another list</h1>
+      <ul id=listone>
+        <li>not me
+        <li>not me
+        <li id=moveme>move me
+        <li>not me
+      </ul>
+      <ul id=listtwo>
+        <li>not me
+        <li>not me
+        <li>not me
+      </ul>
+
+    </section>
 
 
+    <section>
+      <h1>duplicate an element identified by a selector</h1>
+      <p name=dupeme>Duplicate me!</p>
+    </section>
 
-      <div>
-        <h1>set the class of an element</h1>
-        <p>In the beginning was the text, and the text was without class, and the developer gave unto it a class, and the class was `interesting`.</>
-      </div>
-
-
-
-      <div>
-        <h1>set the class of all elements that match some kind of selection criteria</h1>
-
-        <ul>
-          <li name=surprise>This is a surprising list item.</li>
-          <li name=surprise>Yeah, this too is surprising.</li>
-          <li name=surprise>&hellip;and this!  Surprise!</li>
-        </ul>
-
-      </div>
-
-
-
-      <div>
-        <h1>add a class to an element without affecting other classes it has</h1>
-        <p id=wantaborder class="greatcontent">I am a paragraph with great content, and what more could a paragraph want than an excellent border, as provided by the `excellence` class?</p>
-      </div>
-
-
-
-      <div>
-        <h1>remove a class from an element without affecting other classes it has</h1>
-
-
-        <p id=helpme class="greatcontent awesome downer">I am a paragraph with great content, however someone put a bit of a downer in my classes and with that removed I could be awesome.</p>
-      </div>
-
-
-
-      <div>
-        <h1>create a new element</h1>
-        <h1>set ID of an element</h1>
-        <div id=inserthere>
-        </div>
-      </div>
-
-
-
-      <div>
-        <h1>add an element to the end of a list</h1>
-        <ul id=appendme>
-          <li>First list item
-          <li>Second list item
-          <li>Third list item
-        </ul>
-      </div>
-
-
-
-      <div>
-        <h1>add an element to the start of a list</h1>
-        <ul id=prependme>
-          <li>First list item
-          <li>Second list item
-          <li>Third list item
-        </ul>
-      </div>
-
-
-      <div>
-        <h1>add an element to the middle of a list</h1>
-        <ul id=prependme>
-          <li>First list item
-          <li>Second list item
-          <li>Penultimate list item
-          <li>Last list item
-        </ul>
-      </div>
-
-
-
-      <div>
-        <h1>fill an empty list with the contents of an array</h1>
-        <div id=fillalisthere>
-        </div>
-      </div>
-
-
-      <div>
-        <h1>fill an empty list with the contents of an array, in a given sort order</h1>
-        <div id=fillasortedlisthere>
-        </div>
-      </div>
-
-
-      <div>
-        <h1>remove an element identified by ID</h1>
-        <p id=expungeme>Expunge me please!</p>
-      </div>
-
-
-      <div>
-        <h1>remove an element from an ordered list (by index)</h1>
-        <ol id=aniceorderedlist>
-          <li>First list item
-          <li>Second list item
-          <li>Remove me please
-          <li>Last list item
-        </ol>
-      </div>
-
-
-      <div id=noevens>
-        <h1>remove all elements matching some selection criteria</h1>
-        <p>I love you</p>
-        <p>I hate you</p>
-        <p>I love you</p>
-        <p>I hate you</p>
-        <p>I love you</p>
-        <p>I hate you</p>
-      </div>
-
-
-
-      <div>
-        <h1>reverse the contents of a list</h1>
-        <ol id=reverseme>
-          <li>1
-          <li>2
-          <li>3
-          <li>4
-          <li>5
-        </ol>
-        <p>Blast off.
-      </div>
-
-
-
-      <div>
-        <h1>move an element from one list to the end of another list</h1>
-        <ul id=listone>
-          <li>not me
-          <li>not me
-          <li id=moveme>move me
-          <li>not me
-        </ul>
-        <ul id=listtwo>
-          <li>not me
-          <li>not me
-          <li>not me
-        </ul>
-
-      </div>
-
-
-      <div>
-        <h1>duplicate an element identified by a selector</h1>
-        <p name=dupeme>Duplicate me!</p>
-      </div>
-
-      <div>
-        <h1>duplicate an element identified by an ID</h1>
-        <p id=unique>Duplicate me!</p>
-      </div>
-    </div>
+    <section>
+      <h1>duplicate an element identified by an ID</h1>
+      <p id=unique>Duplicate me!</p>
+    </section>
 
     <script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
     <script src="index.js"></script>
