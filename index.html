@@ -14,7 +14,6 @@
     <main>
     </main>
 
-
     <section>
       <h1>Find an element with simple criteria (e.g. we give you an ID)</h1>
       <p id=thisisaparagraph>This is a paragraph.</>
@@ -114,9 +113,9 @@
     <section>
       <h1>add an element to the start of a list</h1>
       <ul id=prependme>
-        <li>First list item
-        <li>Second list item
-        <li>Third list item
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
       </ul>
     </section>
 
@@ -124,10 +123,10 @@
     <section>
       <h1>add an element to the middle of a list</h1>
       <ul id=prependme>
-        <li>First list item
-        <li>Second list item
-        <li>Penultimate list item
-        <li>Last list item
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Penultimate list item</li>
+        <li>Last list item</li>
       </ul>
     </section>
 
@@ -156,10 +155,10 @@
     <section>
       <h1>remove an element from an ordered list (by index)</h1>
       <ol id=aniceorderedlist>
-        <li>First list item
-        <li>Second list item
-        <li>Remove me please
-        <li>Last list item
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Remove me please</li>
+        <li>Last list item</li>
       </ol>
     </section>
 
@@ -179,11 +178,11 @@
     <section>
       <h1>reverse the contents of a list</h1>
       <ol id=reverseme>
-        <li>1
-        <li>2
-        <li>3
-        <li>4
-        <li>5
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
       </ol>
       <p>Blast off.
     </section>
@@ -193,15 +192,15 @@
     <section>
       <h1>move an element from one list to the end of another list</h1>
       <ul id=listone>
-        <li>not me
-        <li>not me
-        <li id=moveme>move me
-        <li>not me
+        <li>not me</li>
+        <li>not me</li>
+        <li id=moveme>move me</li>
+        <li>not me</li>
       </ul>
       <ul id=listtwo>
-        <li>not me
-        <li>not me
-        <li>not me
+        <li>not me</li>
+        <li>not me</li>
+        <li>not me</li>
       </ul>
 
     </section>
@@ -209,7 +208,7 @@
 
     <section>
       <h1>duplicate an element identified by a selector</h1>
-      <p name=dupeme>Duplicate me!</p>
+      <p id=dupeme>Duplicate me!</p>
     </section>
 
     <section>
@@ -217,11 +216,13 @@
       <p id=unique>Duplicate me!</p>
     </section>
 
+
     <script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
     <script src="index.js"></script>
     <script src="logger.js"></script>
     <script src="assess.basics.js"></script>
     <script src="assess.dom.js"></script>
+    <script src="assess.rjb.js"></script>
 </body>
 
 </html>
