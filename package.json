@@ -11,6 +11,7 @@
   ],
   "license": "UNLICENSED",
   "jshintConfig": {
-    "globalstrict": true
+    "globalstrict": true,
+    "predef": ["QUnit", "window", "document"]
   }
 }
