@@ -12,15 +12,22 @@ QUnit.test("testMutateMainUsingDocument",
 
         mutateMain();
 
+        var main = document.querySelector('main');
+
+        assert.ok(
+          main,
+          "Use document.createElement to create a new paragraph element.  Append this paragraph to the `main` element."
+        );
+
         assert.strictEqual(
-          window.main.firstElementChild.tagName,
+          main.firstElementChild.tagName,
           "P",
           "Use document.createElement to create a new paragraph element.  Append this paragraph to the `main` element."
         );
 
         assert.strictEqual(
           document.getElementById("example1"),
-          window.main.firstElementChild,
+          main.firstElementChild,
           "The element you create should be given the id attribute of `example1`."
         );
 
