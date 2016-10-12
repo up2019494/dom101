@@ -1,3 +1,4 @@
+"use strict";
 QUnit.module("Basics");
 
 QUnit.test("Change the id method in index.js to return your student ID.",
