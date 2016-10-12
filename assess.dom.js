@@ -9,6 +9,60 @@ function arr(a) {
 }
 
 
+QUnit.test("addSometext",
+    function(assert) {
+        assert.ok(
+            typeof addTo === "function",
+            "Put all your code in a function called `addTo`."
+        );
+
+        assert.strictEqual(
+            document.getElementById('addto').textContent,
+            "Does it work yet?",
+            "Before your function runs, this paragraph contains only the text `Does it work yet?`"
+        );
+
+        addTo();
+
+        assert.strictEqual(
+            document.getElementById('addto').textContent,
+            "Does it work yet? Yes!",
+            "After your function runs, this paragraph contains the text `Does it work yet? Yes!` - i.e. your code must add the text ` Yes` to the end of the existing text content."
+        );
+    }
+);
+
+
+
+QUnit.test("replaceSomeText",
+    function(assert) {
+        assert.ok(
+            typeof replaceText === "function",
+            "Put all your code in a function called `replaceText`."
+        );
+
+        assert.strictEqual(
+            document.getElementById('replacethis').textContent,
+            "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰",
+            "Before your function runs, this paragraph contains only the text `𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰`"
+        );
+
+        replaceText();
+
+        assert.strictEqual(
+            document.getElementById('replacethis').textContent,
+            "The text has been replaced.",
+            "After your function runs, the `replacehere` paragraph should contain the text `The text has been replaced.` - i.e. your code must insert that text instead of what is originally there."
+        );
+
+        assert.notStrictEqual(
+            document.getElementById('replacethis').textContent,
+            "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰",
+            "After your function, the original text must definitely not be there!"
+        );
+    }
+);
+
 QUnit.test("findElementById",
     function(assert) {
         assert.ok(
