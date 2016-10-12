@@ -94,6 +94,7 @@ function reverseList(selector) {
   for (i = 0; i < list.children.length; i++) {
     list.appendChild(items[i]);
   }
+  return list;
 }
 
 

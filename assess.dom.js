@@ -305,7 +305,7 @@ QUnit.test("findElementById",
     function(assert) {
         assert.ok(
             typeof findElementById === "function",
-            "Write a function `findElementById` which, given one parameter called ID, returns the element that has that id."
+            "Create a function `findElementById` which, given one parameter called ID, returns the element that has that id."
         );
 
         assert.strictEqual(
@@ -322,6 +322,7 @@ QUnit.test("findElementById",
             findElementById('mustnotexist'),
             null
         );
+
         window.thisisaparagraph.parentElement.classList.add("done");
         window.selectus.classList.add("done");
     }
@@ -333,7 +334,7 @@ QUnit.test("findElementByQuery",
     function(assert) {
         assert.ok(
             typeof findElementByQuery === "function",
-            "Write a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
+            "Create a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
         );
 
         assert.deepEqual(
@@ -367,7 +368,7 @@ QUnit.test("reverseList",
 
         assert.ok(
             typeof reverseList === "function",
-            "Write a function `reverseList` that can reverse the content of a list.  The function should take one parameter which is a selector, used to choose which list is reversed."
+            "Create a function `reverseList` that can reverse the content of a list.  The function should take one parameter which is a selector, used to choose which list is reversed (select the list (the UL or OL) not the list items).  Return the selected element."
         );
 
         assert.strictEqual(
@@ -390,17 +391,20 @@ QUnit.test("reverseList",
           "After running, last element must be 1."
         );
 
-        reverseList("#reverseme");
+        // reverse another list
+        var returnedList = reverseList("#reversemetoo");
 
         assert.strictEqual(
-          window.reverseme.firstElementChild.textContent,
-          "1",
-          "After running again, first element is 1."
+          window.reversemetoo.firstElementChild.textContent,
+          "The Force Awakens",
+          "After running again, first element is The Force Awakens."
         );
 
-        // leave it reversed so it looks nice
-        reverseList("#reverseme");
-
+        assert.strictEqual(
+          window.reversemetoo,
+          returnedList,
+          "The selected element is returned."
+        );
 
         window.reverseme.parentElement.classList.add("done");
 
@@ -413,12 +417,12 @@ QUnit.test("listMover",
 
         assert.ok(
             typeof mover === "function",
-            "Write a function `mover` that accepts two parameters, the first is a selector for the element to move, the second is a selector for the elenebt that it should be appended to."
+            "Create a function `mover` that accepts two parameters, the first is a selector for the element to move, the second is a selector for the element that it should be appended to."
         );
 
         assert.ok(
           window.moveme.parentElement == window.listone,
-          "Before, moveme has listone as a parent."
+          "Before, `moveme` has `listone` as a parent."
         );
 
 
@@ -434,8 +438,7 @@ QUnit.test("listMover",
           "Before running, list one has 3 elements."
         );
 
-        mover( "#moveme", "#listtwo");
-
+        mover( "#moveme", "#listtwo")
 
         assert.strictEqual(
           window.listone.children.length,
@@ -452,6 +455,20 @@ QUnit.test("listMover",
         assert.ok(
           window.moveme.parentElement == window.listtwo,
           "After, moveme has a new parent."
+        );
+
+        mover( "#moveme", "#listone")
+
+        assert.strictEqual(
+          window.listone.children.length,
+          4,
+          "After running again, list one has 4 elements."
+        );
+
+        assert.strictEqual(
+          window.listtwo.children.length,
+          3,
+          "Before running again, list one has 3 elements."
         );
 
 
@@ -521,7 +538,7 @@ QUnit.test("duplication",
 
         assert.ok(
             typeof dupe === "function",
-            "Write a function `dupe` that accepts one parameter, a selector, The function should duplicate."
+            "Write a function `dupe` that accepts one parameter, a selector.  The function should duplicate the element chosen by the selector (and any children of it)."
         );
 
         assert.strictEqual(
