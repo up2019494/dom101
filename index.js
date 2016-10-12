@@ -36,7 +36,7 @@ function replaceText() {
 function moreBears() {
   document.querySelector("#animals").src = "http://placebear.com/400/200";
   document.querySelector("#animals").alt = "A bear.";
-
+  document.querySelector("#animals").title = "A BEAR!";
 }
 
 function findElementById(id) {

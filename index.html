@@ -30,6 +30,16 @@
   padding: 1rem;
 }
 
+.done {
+  padding: 1rem;
+  border: solid #990099 thin;
+  border-left: solid #990099 1rem;
+}
+
+.lovely {
+  color: #FFFF00;
+}
+
 </style>
 
 <body>
@@ -38,23 +48,23 @@
 
 
     <section>
-      <h1>Find an element by ID</h1>
+      <h1>Find an element by its ID</h1>
       <p id=thisisaparagraph>This is a paragraph.</p>
     </section>
 
     <section>
-      <h1>Add some text to an Element</h1>
+      <h1>Add some text to an element</h1>
       <p id=addto>Does it work yet?</p>
     </section>
 
     <section>
-      <h1>Add some text to an Element</h1>
+      <h1>Replace the text in an element</h1>
       <p id=replacethis>𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰</p>
     </section>
 
 
     <section id=selectus>
-      <h1>find all elements matching more complex criteria (selector)</h1>
+      <h1>Find all elements matching more complex criteria (selector)</h1>
 
       <p class=selectus>This is a paragraph.</p>
       <p class=selectus>This is also a paragraph.</p>
@@ -62,116 +72,41 @@
     </section>
 
 
-
     <section>
-      <h1>set the href and alt of an image</h1>
-      <p>placekitten.com and placebear.com are 'services' that serve pictures of kittens and bears in specific sizes.</p>
-      <img id=animals src=http://placekitten.com/400/200 alt="A kitten.">
+      <h1>Set the src, alt &amp; title of an image</h1>
+      <p><a href=http://placekitten.com>placekitten.com</a> and <a href=placebear.com>placebear.com</a> are websites that serve pictures of kittens and bears in specific sizes.</p>
+      <img id=animals src=http://placekitten.com/400/200 alt="A kitten." title="A kitten.">
     </section>
 
 
     <section>
-      <h1>set the class of an element</h1>
+      <h1>Set the class of an element</h1>
       <p id=setmyclass>In the beginning was the text, and the text was without class, and the developer gave unto it a class, and the class was `interesting`.</p>
     </section>
 
 
     <section>
-      <h1>set the class of all elements that match some kind of selection criteria</h1>
-
-      <ul>
-        <li name=surprise>This is a surprising list item.</li>
-        <li name=surprise>Yeah, this too is surprising.</li>
-        <li name=surprise>&hellip;and this!  Surprise!</li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>add a class to an element without affecting other classes it has</h1>
+      <h1>Add a class to an element without affecting other classes it has</h1>
       <p id=wantaborder class="greatcontent">I am a paragraph with great content, and what more could a paragraph want than an excellent border, as provided by the `excellence` class?</p>
     </section>
 
 
     <section>
-      <h1>remove a class from an element without affecting other classes it has</h1>
+      <h1>Remove a class from an element without affecting other classes it has</h1>
 
       <p id=helpme class="greatcontent excellence downer">I am a paragraph with great content, however someone put a bit of a `downer` in my classes and with that removed I too could show my excellence.</p>
     </section>
 
 
     <section>
-      <h1>create a new element</h1>
-      <h1>set ID of an element</h1>
-      <div id=inserthere>
-      </div>
-    </section>
-
-
-    <section>
-      <h1>add an element to the end of a list</h1>
-      <ul id=appendme>
-        <li>First list item
-        <li>Second list item
-        <li>Third list item
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>add an element to the start of a list</h1>
-      <ul id=prependme>
-        <li>First list item</li>
-        <li>Second list item</li>
-        <li>Third list item</li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>add an element to the middle of a list</h1>
-      <ul id=prependme>
-        <li>First list item</li>
-        <li>Second list item</li>
-        <li>Penultimate list item</li>
-        <li>Last list item</li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h1>fill an empty list with the contents of an array</h1>
+      <h1>Fill an empty list with the contents of an array</h1>
       <ul id=fillthislist>
       </ul>
     </section>
 
 
-    <section>
-      <h1>fill an empty list with the contents of an array, in a given sort order</h1>
-      <div id=fillasortedlisthere>
-      </div>
-    </section>
-
-
-    <section>
-      <h1>remove an element identified by ID</h1>
-      <p id=expungeme>Expunge me please!</p>
-    </section>
-
-
-    <section>
-      <h1>remove an element from an ordered list (by index)</h1>
-      <ol id=aniceorderedlist>
-        <li>First list item</li>
-        <li>Second list item</li>
-        <li>Remove me please</li>
-        <li>Last list item</li>
-      </ol>
-    </section>
-
-
     <section id=noevens>
-      <h1>remove all elements matching some selection criteria</h1>
+      <h1>Remove all elements matching some selection criteria</h1>
       <p>I love you</p>
       <p>I hate you</p>
       <p>I love you</p>
@@ -182,20 +117,20 @@
 
 
     <section>
-      <h1>reverse the contents of a list</h1>
-      <ol id=reverseme>
+      <h1>Reverse the contents of a list</h1>
+      <ul id=reverseme>
         <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
         <li>5</li>
-      </ol>
+      </ul>
       <p>Blast off.
     </section>
 
 
     <section>
-      <h1>move an element from one list to the end of another list</h1>
+      <h1>Move an element from one list to the end of another list</h1>
       <ul id=listone>
         <li>not me</li>
         <li>not me</li>
@@ -211,14 +146,8 @@
 
 
     <section>
-      <h1>duplicate an element identified by a selector</h1>
+      <h1>Duplicate an element identified by a selector</h1>
       <p id=dupeme>Duplicate me!</p>
-    </section>
-
-
-    <section>
-      <h1>duplicate an element identified by an ID</h1>
-      <p id=unique>Duplicate me!</p>
     </section>
 
 

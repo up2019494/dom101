@@ -29,6 +29,9 @@ QUnit.test("addSometext",
             "Does it work yet? Yes!",
             "After your function runs, this paragraph contains the text `Does it work yet? Yes!` - i.e. your code must add the text ` Yes` to the end of the existing text content."
         );
+
+        window.addto.parentElement.classList.add("done");
+
     }
 );
 
@@ -60,6 +63,9 @@ QUnit.test("replaceSomeText",
             "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰",
             "After your function, the original text must definitely not be there!"
         );
+
+        window.replacethis.parentElement.classList.add("done");
+
     }
 );
 
@@ -81,8 +87,15 @@ QUnit.test("setAttributes",
         assert.strictEqual(
           document.getElementById('animals').alt,
           "A kitten.",
-          "Before your function runs, the alt text should say `A kitten.``"
+          "Before your function runs, the alt text should say `A kitten.`"
         );
+
+        assert.strictEqual(
+          document.getElementById('animals').alt,
+          "A kitten.",
+          "Before your function runs, the title text should say `A kitten.`"
+        );
+
 
         moreBears();
 
@@ -97,6 +110,14 @@ QUnit.test("setAttributes",
           "A bear.",
           "After your function runs, the image alt text should say `A Bear.`"
         );
+
+        assert.strictEqual(
+          document.getElementById('animals').title,
+          "A BEAR!",
+          "After your function runs, the image title text should say `A BEAR!`"
+        );
+
+        document.getElementById('animals').parentElement.classList.add("done");
     }
 );
 
@@ -128,8 +149,9 @@ QUnit.test("setTheId",
         assert.strictEqual(
           q.id,
           p.id,
-          "If thsi test fails it's because you're not returning the element as required."
+          "If this test fails it's because you're not returning the element as required."
         );
+
     }
 );
 
@@ -150,6 +172,14 @@ QUnit.test("setTheClass",
           "Before running, p has no class."
         );
 
+        setClass(p, "banal");
+
+        assert.strictEqual(
+          p.className,
+          "banal",
+          "After running, class is `banal`.  The function should take two parameters, the first being the element to be changed, and the second being the value to change it to."
+        );
+
         setClass(p, "interesting");
 
         assert.strictEqual(
@@ -159,7 +189,7 @@ QUnit.test("setTheClass",
         );
 
         // so, why do you think we're using className here?
-
+        window.setmyclass.parentElement.classList.add("done");
     }
 );
 
@@ -195,11 +225,26 @@ QUnit.test("addAClass",
           "The function addAClass must accept two parameters, first, an element to which a class is to be added, and second, a string that is the classname to be added.  e.g. After running, p has two classes.  [It should now have a pretty dotted border.]"
         );
 
-
         assert.ok(
           arr(p.classList).indexOf("excellence") >= 0,
           "After running, the array of classes contains `excellence`."
         );
+
+        addAClass(p, "lovely");
+
+        assert.strictEqual(
+          p.classList.length,
+          3,
+          "here, the function is called again to ensure classes are added properly and not just replaced."
+        );
+
+        assert.ok(
+          arr(p.classList).indexOf("lovely") >= 0,
+          "After running, the array of classes contains `lovely`."
+        );
+
+
+        window.wantaborder.parentElement.classList.add("done");
 
     }
 );
@@ -237,6 +282,7 @@ QUnit.test("removeAClass",
           "The removeAClass function must accept two parameters, first, an element from which a class is to be removed, and a string name that is the classname to be removed from the element.  e.g. After running, the array of classes must not contain `downer`.  [In the page the content will no longer be black and purple.]"
         );
 
+        p.parentElement.classList.add("done");
 
     }
 );
@@ -270,7 +316,10 @@ QUnit.test("findElementById",
             findElementById('mustnotexist'),
             null
         );
+        window.thisisaparagraph.parentElement.classList.add("done");
+        window.selectus.classList.add("done");
     }
+
 );
 
 
@@ -285,6 +334,7 @@ QUnit.test("findElementByQuery",
             arr(findElementByQuery('#thisisaparagraph')),
             [ window.thisisaparagraph ]
         );
+
 
         assert.deepEqual(
             arr(findElementByQuery('#selectus *')),
@@ -346,6 +396,8 @@ QUnit.test("reverseList",
         reverseList("#reverseme");
 
 
+        window.reverseme.parentElement.classList.add("done");
+
     }
 );
 
@@ -396,6 +448,9 @@ QUnit.test("listMover",
           "After, moveme has a new parent."
         );
 
+
+        window.moveme.parentElement.parentElement.classList.add("done");
+
     }
 );
 
@@ -417,20 +472,37 @@ QUnit.test("listFiller",
         filler(ul, entries)
 
         for (var i = 0; i < ul.children.length; i++) {
-
           assert.strictEqual(
             ul.children[i].textContent,
             entries[i],
             "Text in each element should match the text in the array."
           );
-
         }
 
         assert.strictEqual(
           ul.children.length,
           3,
-          "There shoudl be exactly three list items."
+          "There should be exactly three list items."
         );
+
+
+        var unshowntest = document.createElement("ul");
+        filler(unshowntest, []);
+        assert.strictEqual(
+          unshowntest.children.length,
+          0,
+          "There should be exactly zero list items if called with an empty array."
+        );
+
+        filler(unshowntest, ["Sloane", "Kyrell", "Wexley", "Rax"]);
+        assert.strictEqual(
+          unshowntest.children.length,
+          4,
+          "There should be exactly four list items if called with an array of four items."
+        );
+
+
+        window.fillthislist.parentElement.classList.add("done");
 
     }
 );
@@ -475,6 +547,8 @@ QUnit.test("duplication",
         );
 
 
+        thingToBeDuped.parentElement.classList.add("done");
+
     }
 );
 
@@ -508,5 +582,6 @@ QUnit.test("removeAllMatchingNodes",
           );
       }
 
+      parent.classList.add("done");
     }
 );
