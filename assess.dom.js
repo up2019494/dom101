@@ -65,61 +65,6 @@ QUnit.test("replaceSomeText",
 
 
 
-QUnit.test("findElementById",
-    function(assert) {
-        assert.ok(
-            typeof findElementById === "function",
-            "Write a function `findElementById` which, given one parameter called ID, returns the element that has that id."
-        );
-
-        assert.strictEqual(
-            findElementById('thisisaparagraph'),
-            window.thisisaparagraph
-        );
-
-        assert.strictEqual(
-            findElementById('selectus'),
-            window.selectus
-        );
-
-        assert.strictEqual(
-            findElementById('mustnotexist'),
-            null
-        );
-    }
-);
-
-
-QUnit.test("findElementByQuery",
-    function(assert) {
-        assert.ok(
-            typeof findElementByQuery === "function",
-            "Write a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
-        );
-
-        assert.deepEqual(
-            arr(findElementByQuery('#thisisaparagraph')),
-            [ window.thisisaparagraph ]
-        );
-
-        assert.deepEqual(
-            arr(findElementByQuery('#selectus *')),
-            arr(window.selectus.children)
-        );
-
-        assert.deepEqual(
-            arr(findElementByQuery('.selectus')),
-            arr(window.selectus.getElementsByTagName('P'))
-        );
-
-        assert.deepEqual(
-            arr(findElementByQuery('mustnotexist')),
-            []
-        );
-    }
-);
-
-
 QUnit.test("setAttributes",
     function(assert) {
         assert.ok(
@@ -144,7 +89,7 @@ QUnit.test("setAttributes",
         assert.strictEqual(
           document.getElementById('animals').src,
           "http://placebear.com/400/200",
-          "After your function runs, the image should be a bear.  Achieve this by changing the placekitten URL to an identical one, but change the domain to `placebear.com`."
+          "After your function runs, the image should be a bear.  Achieve this in your function by changing the placekitten URL to an almost identical one where the  domain is `placebear.com`."
         );
 
         assert.strictEqual(
@@ -155,49 +100,6 @@ QUnit.test("setAttributes",
     }
 );
 
-
-QUnit.test("reverseList",
-    function(assert) {
-
-        assert.ok(
-            typeof reverseList === "function",
-            "Write a function `reverseList` that can reverse the content of a list.  The function should take one parameter which is a selector, used to choose which list is reversed."
-        );
-
-        assert.strictEqual(
-          window.reverseme.firstElementChild.textContent,
-          "1",
-          "Before running, first element is 1."
-        );
-
-        reverseList("#reverseme");
-
-        assert.strictEqual(
-          window.reverseme.firstElementChild.textContent,
-          "5",
-          "After running, first element must be 5."
-        );
-
-        assert.strictEqual(
-          window.reverseme.lastElementChild.textContent,
-          "1",
-          "After running, last element must be 1."
-        );
-
-        reverseList("#reverseme");
-
-        assert.strictEqual(
-          window.reverseme.firstElementChild.textContent,
-          "1",
-          "After running again, first element is 1."
-        );
-
-        // leave it reversed so it looks nice
-        reverseList("#reverseme");
-
-
-    }
-);
 
 
 QUnit.test("setTheId",
@@ -339,6 +241,113 @@ QUnit.test("removeAClass",
     }
 );
 
+
+
+
+
+
+
+
+
+QUnit.test("findElementById",
+    function(assert) {
+        assert.ok(
+            typeof findElementById === "function",
+            "Write a function `findElementById` which, given one parameter called ID, returns the element that has that id."
+        );
+
+        assert.strictEqual(
+            findElementById('thisisaparagraph'),
+            window.thisisaparagraph
+        );
+
+        assert.strictEqual(
+            findElementById('selectus'),
+            window.selectus
+        );
+
+        assert.strictEqual(
+            findElementById('mustnotexist'),
+            null
+        );
+    }
+);
+
+
+QUnit.test("findElementByQuery",
+    function(assert) {
+        assert.ok(
+            typeof findElementByQuery === "function",
+            "Write a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('#thisisaparagraph')),
+            [ window.thisisaparagraph ]
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('#selectus *')),
+            arr(window.selectus.children)
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('.selectus')),
+            arr(window.selectus.getElementsByTagName('P'))
+        );
+
+        assert.deepEqual(
+            arr(findElementByQuery('mustnotexist')),
+            []
+        );
+    }
+);
+
+
+
+
+QUnit.test("reverseList",
+    function(assert) {
+
+        assert.ok(
+            typeof reverseList === "function",
+            "Write a function `reverseList` that can reverse the content of a list.  The function should take one parameter which is a selector, used to choose which list is reversed."
+        );
+
+        assert.strictEqual(
+          window.reverseme.firstElementChild.textContent,
+          "1",
+          "Before running, first element is 1."
+        );
+
+        reverseList("#reverseme");
+
+        assert.strictEqual(
+          window.reverseme.firstElementChild.textContent,
+          "5",
+          "After running, first element must be 5."
+        );
+
+        assert.strictEqual(
+          window.reverseme.lastElementChild.textContent,
+          "1",
+          "After running, last element must be 1."
+        );
+
+        reverseList("#reverseme");
+
+        assert.strictEqual(
+          window.reverseme.firstElementChild.textContent,
+          "1",
+          "After running again, first element is 1."
+        );
+
+        // leave it reversed so it looks nice
+        reverseList("#reverseme");
+
+
+    }
+);
 
 
 QUnit.test("listMover",
