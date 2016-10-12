@@ -1,7 +1,7 @@
 var
   svr = "http://rjb.soc.port.ac.uk",
   now = Date.now(),
-  runid = "run" + id() + now,
+  runid = "run " + id() + " " + now,
   order = 0,
   tests = [],
   modules = {},
