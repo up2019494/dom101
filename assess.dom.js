@@ -9,25 +9,30 @@ function arr(a) {
 }
 
 
-QUnit.test("addSometext",
+QUnit.test("adding text",
     function(assert) {
         assert.ok(
-            typeof addTo === "function",
-            "Put all your code in a function called `addTo`."
+            typeof addTextTo === "function",
+            "Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element."
         );
 
         assert.strictEqual(
             document.getElementById('addto').textContent,
-            "Does it work yet?",
-            "Before your function runs, this paragraph contains only the text `Does it work yet?`"
+            "Does it work yet?"
         );
 
-        addTo();
+        addTextTo(document.querySelector("#addto"), ' No!');
 
         assert.strictEqual(
             document.getElementById('addto').textContent,
-            "Does it work yet? Yes!",
-            "After your function runs, this paragraph contains the text `Does it work yet? Yes!` - i.e. your code must add the text ` Yes` to the end of the existing text content."
+            "Does it work yet? No!"
+        );
+
+        addTextTo(document.querySelector("#addto"), ' Yes!');
+
+        assert.strictEqual(
+            document.getElementById('addto').textContent,
+            "Does it work yet? No! Yes!"
         );
 
         window.addto.parentElement.classList.add("done");
@@ -37,35 +42,33 @@ QUnit.test("addSometext",
 
 
 
-QUnit.test("replaceSomeText",
+QUnit.test("replace text",
     function(assert) {
         assert.ok(
             typeof replaceText === "function",
-            "Put all your code in a function called `replaceText`."
+            "Create a function replaceText which gets two parameters: an element and a string. The function should set the content of the given element to the given string."
         );
 
         assert.strictEqual(
             document.getElementById('replacethis').textContent,
-            "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰",
-            "Before your function runs, this paragraph contains only the text `𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰`"
+            "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰"
         );
 
-        replaceText();
+        replaceText(document.getElementById('replacethis'), "The text has been replaced.");
 
         assert.strictEqual(
             document.getElementById('replacethis').textContent,
-            "The text has been replaced.",
-            "After your function runs, the `replacehere` paragraph should contain the text `The text has been replaced.` - i.e. your code must insert that text instead of what is originally there."
+            "The text has been replaced."
         );
 
-        assert.notStrictEqual(
+        replaceText(document.getElementById('replacethis'), "The text has been replaced <twice>.");
+
+        assert.strictEqual(
             document.getElementById('replacethis').textContent,
-            "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰",
-            "After your function, the original text must definitely not be there!"
+            "The text has been replaced <twice>."
         );
 
         window.replacethis.parentElement.classList.add("done");
-
     }
 );
 
