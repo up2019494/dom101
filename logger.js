@@ -24,7 +24,7 @@ var
   };
 
 /**
- * This gets called every time a unit test runs (pass or fail)
+ * This gets called every time a unit test assertion runs (pass or fail)
  */
 QUnit.log(
   function( details ) {
@@ -40,19 +40,25 @@ QUnit.log(
 
     // record the individual test
     tests.push(details);
-
-    var testName = details.moduleid + '/' + details.name;
-    // if a test fails any assertion, it will be recorded as failed
-    if (details.result) {
-      if (runRecord.testsFailed.indexOf(testName) === -1 &&
-          runRecord.testsSucceeded.indexOf(testName) === -1) runRecord.testsSucceeded.push(testName);
-    } else {
-      if (runRecord.testsFailed.indexOf(testName) === -1) runRecord.testsFailed.push(testName);
-      // remove a failed test from the list of succeeded tests
-      runRecord.testsSucceeded = runRecord.testsSucceeded.filter(function (val) { return val !== testName; });
-    }
   }
 );
+
+/**
+ * This gets called every time a whole unit test runs (pass or fail)
+ */
+QUnit.testDone(function( details ) {
+    // ensure whatever this module is is recorded in the list of modules.
+    var moduleid = details.module.toLowerCase().replace(/[^a-zA-Z\d]/gi, "_");
+
+    var testName = moduleid + '/' + details.name;
+
+    // if a test fails any assertion, it will be recorded as failed
+    if (details.failed) {
+      runRecord.testsFailed.push(testName);
+    } else {
+      runRecord.testsSucceeded.push(testName);
+    }
+});
 
 /**
  * This gets called after the last test has run.
