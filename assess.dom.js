@@ -199,6 +199,38 @@ QUnit.test("reverseList",
 );
 
 
+QUnit.test("setTheId",
+    function(assert) {
+
+        assert.ok(
+            typeof setId === "function",
+            "Create a function `setId`"
+        );
+
+        var p = document.createElement("p");
+
+        assert.notOk(
+          p.id,
+          "Before running, p has no Id."
+        );
+
+        var q = setId(p);
+
+        assert.strictEqual(
+          p.id,
+          "lalala",
+          "After running, ID is lalala.  The function should take one parameter, which is the element to be changed, and it should return that element."
+        );
+
+        assert.strictEqual(
+          q.id,
+          p.id,
+          "If thsi test fails it's because you're not returning the element as required."
+        );
+    }
+);
+
+
 QUnit.test("listMover",
     function(assert) {
 
@@ -248,6 +280,41 @@ QUnit.test("listMover",
     }
 );
 
+
+
+
+QUnit.test("listFiller",
+    function(assert) {
+
+        assert.ok(
+            typeof filler === "function",
+            "Write a function `filler` that accepts two parameters, the first is a list element that should be added to, the second is an array of strings that will be turned into list items."
+        );
+
+        var ul = document.getElementById("fillthislist");
+
+        var entries = ["Shmi", "Anakin", "Luke"];
+
+        filler(ul, entries)
+
+        for (var i = 0; i < ul.children.length; i++) {
+
+          assert.strictEqual(
+            ul.children[i].textContent,
+            entries[i],
+            "Text in each element should match the text in the array."
+          );
+
+        }
+
+        assert.strictEqual(
+          ul.children.length,
+          3,
+          "There shoudl be exactly three list items."
+        );
+
+    }
+);
 
 
 QUnit.test("duplication",
