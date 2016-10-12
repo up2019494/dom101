@@ -133,12 +133,24 @@ QUnit.test("setAttributes",
           "Before your function runs, the image should be a kitten."
         );
 
+        assert.strictEqual(
+          document.getElementById('animals').alt,
+          "A kitten.",
+          "Before your function runs, the alt text should say `A kitten.``"
+        );
+
         moreBears();
 
         assert.strictEqual(
           document.getElementById('animals').src,
           "http://placebear.com/400/200",
           "After your function runs, the image should be a bear.  Achieve this by changing the placekitten URL to an identical one, but change the domain to `placebear.com`."
+        );
+
+        assert.strictEqual(
+          document.getElementById('animals').alt,
+          "A bear.",
+          "After your function runs, the image alt text should say `A Bear.`"
         );
     }
 );
