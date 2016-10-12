@@ -63,6 +63,8 @@ QUnit.test("replaceSomeText",
     }
 );
 
+
+
 QUnit.test("findElementById",
     function(assert) {
         assert.ok(
@@ -117,6 +119,29 @@ QUnit.test("findElementByQuery",
     }
 );
 
+
+QUnit.test("setAttributes",
+    function(assert) {
+        assert.ok(
+            typeof moreBears === "function",
+            "Put all your code in a function called `moreBears`."
+        );
+
+        assert.strictEqual(
+          document.getElementById('animals').src,
+          "http://placekitten.com/400/200",
+          "Before your function runs, the image should be a kitten."
+        );
+
+        moreBears();
+
+        assert.strictEqual(
+          document.getElementById('animals').src,
+          "http://placebear.com/400/200",
+          "After your function runs, the image should be a bear.  Achieve this by changing the placekitten URL to an identical one, but change the domain to `placebear.com`."
+        );
+    }
+);
 
 QUnit.test("reverseList",
     function(assert) {
