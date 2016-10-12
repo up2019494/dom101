@@ -123,3 +123,8 @@ function removeAll(selector) {
 
 function findElementById(id) { return document.getElementById(id); }
 function findElementByQuery(id) { return document.querySelectorAll(id); }
+
+function newElement(name) { return document.createElement(name); }
+function getUserData() {
+  return { name: window.username.value, speed: window.speed.valueAsNumber, student: window.student.checked };
+}

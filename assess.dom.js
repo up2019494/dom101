@@ -301,6 +301,42 @@ QUnit.test("removeAClass",
 
 
 
+QUnit.test("creating elements",
+    function(assert) {
+        assert.ok(
+            typeof newElement === "function",
+            "Write a function `newElement` which, given one parameter called name, returns a newly created element with that tag name."
+        );
+
+        var x = newElement('li');
+
+        assert.strictEqual(
+            x.parentElement,
+            null
+        );
+
+        assert.strictEqual(
+            x.nodeName,
+            "LI"
+        );
+
+        x = newElement('p');
+
+        assert.strictEqual(
+            x.parentElement,
+            null
+        );
+
+        assert.strictEqual(
+            x.nodeName,
+            "P"
+        );
+    }
+
+);
+
+
+
 QUnit.test("findElementById",
     function(assert) {
         assert.ok(
@@ -328,6 +364,8 @@ QUnit.test("findElementById",
     }
 
 );
+
+
 
 
 QUnit.test("findElementByQuery",
@@ -435,7 +473,7 @@ QUnit.test("listMover",
         assert.strictEqual(
           window.listtwo.children.length,
           3,
-          "Before running, list one has 3 elements."
+          "Before running, list two has 3 elements."
         );
 
         mover( "#moveme", "#listtwo")
@@ -449,7 +487,7 @@ QUnit.test("listMover",
         assert.strictEqual(
           window.listtwo.children.length,
           4,
-          "Before running, list one has 4 elements."
+          "After running, list two has 4 elements."
         );
 
         assert.ok(
@@ -469,6 +507,26 @@ QUnit.test("listMover",
           window.listtwo.children.length,
           3,
           "Before running again, list one has 3 elements."
+        );
+
+
+        mover( "#moveme", "#listone");
+
+        assert.strictEqual(
+          window.listone.children.length,
+          4,
+          "After running, list one has 4 elements."
+        );
+
+        assert.strictEqual(
+          window.listtwo.children.length,
+          3,
+          "After running, list two has 3 elements."
+        );
+
+        assert.ok(
+          window.moveme.parentElement == window.listone,
+          "After, moveme has a new parent."
         );
 
 
@@ -606,5 +664,34 @@ QUnit.test("removeAllMatchingNodes",
       }
 
       parent.classList.add("done");
+    }
+);
+
+
+QUnit.test("form elements",
+    function(assert) {
+        assert.ok(
+            typeof getUserData === "function",
+            "Write a function `getUserData` that returns an object with information from the #name, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: '30', student: true }."
+        );
+
+        var user = getUserData();
+
+        assert.deepEqual(
+            user,
+            { name: 'John', speed: 70, student: true }
+        )
+
+        window.username.value = "Jane";
+        window.speed.value = 100;
+        window.student.checked = false;
+
+        var user = getUserData();
+
+        assert.deepEqual(
+            user,
+            { name: 'Jane', speed: 100, student: false }
+        )
+        window.username.parentElement.parentElement.classList.add('done');
     }
 );
