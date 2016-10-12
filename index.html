@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
 </head>
 
+<style>
+.interesting {
+  background: red;
+  color: white;
+}
+</style>
+
 <body>
     <div id="qunit">
     </div>
@@ -37,17 +44,6 @@
     </section>
 
 
-    <section>
-      <h1>add text to an element</h1>
-      <p id=ihavenotext></p>
-    </section>
-
-
-    <section>
-      <h1>replace text of an element</h1>
-      <p id=ihavetext>Replace me please!</p>
-    </section>
-
 
     <section>
       <h1>set the href and alt of an image</h1>
@@ -58,7 +54,7 @@
 
     <section>
       <h1>set the class of an element</h1>
-      <p>In the beginning was the text, and the text was without class, and the developer gave unto it a class, and the class was `interesting`.</p>
+      <p id=setmyclass>In the beginning was the text, and the text was without class, and the developer gave unto it a class, and the class was `interesting`.</p>
     </section>
 
 

@@ -155,6 +155,7 @@ QUnit.test("setAttributes",
     }
 );
 
+
 QUnit.test("reverseList",
     function(assert) {
 
@@ -227,6 +228,36 @@ QUnit.test("setTheId",
           p.id,
           "If thsi test fails it's because you're not returning the element as required."
         );
+    }
+);
+
+
+
+QUnit.test("setTheClass",
+    function(assert) {
+
+        assert.ok(
+            typeof setClass === "function",
+            "Create a function `setClass`"
+        );
+
+        var p = document.getElementById("setmyclass");
+
+        assert.notOk(
+          p.className,
+          "Before running, p has no class."
+        );
+
+        setClass(p, "interesting");
+
+        assert.strictEqual(
+          p.className,
+          "interesting",
+          "After running, class is `interesting`.  The function should take two parameters, the first being the element to be changed, and the second being the value to chaneg it to."
+        );
+
+        // so, why do you think we're using className here?
+
     }
 );
 
