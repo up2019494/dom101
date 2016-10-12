@@ -78,25 +78,22 @@ QUnit.test("setAttributes",
     function(assert) {
         assert.ok(
             typeof moreBears === "function",
-            "Put all your code in a function called `moreBears`."
+            "Create a function `moreBears` that replaces the image of a kitten with the image of a bear. Find the image of the kitten and then set its source URL to 'http://placebear.com/400/200', its alternative text to 'A bear.', and its title to 'A BEAR!'."
         );
 
         assert.strictEqual(
           document.getElementById('animals').src,
-          "http://placekitten.com/400/200",
-          "Before your function runs, the image should be a kitten."
+          "http://placekitten.com/400/200"
         );
 
         assert.strictEqual(
           document.getElementById('animals').alt,
-          "A kitten.",
-          "Before your function runs, the alt text should say `A kitten.`"
+          "A kitten."
         );
 
         assert.strictEqual(
           document.getElementById('animals').alt,
-          "A kitten.",
-          "Before your function runs, the title text should say `A kitten.`"
+          "A kitten."
         );
 
 
@@ -104,20 +101,17 @@ QUnit.test("setAttributes",
 
         assert.strictEqual(
           document.getElementById('animals').src,
-          "http://placebear.com/400/200",
-          "After your function runs, the image should be a bear.  Achieve this in your function by changing the placekitten URL to an almost identical one where the  domain is `placebear.com`."
+          "http://placebear.com/400/200"
         );
 
         assert.strictEqual(
           document.getElementById('animals').alt,
-          "A bear.",
-          "After your function runs, the image alt text should say `A Bear.`"
+          "A bear."
         );
 
         assert.strictEqual(
           document.getElementById('animals').title,
-          "A BEAR!",
-          "After your function runs, the image title text should say `A BEAR!`"
+          "A BEAR!"
         );
 
         document.getElementById('animals').parentElement.classList.add("done");
@@ -131,30 +125,35 @@ QUnit.test("setTheId",
 
         assert.ok(
             typeof setId === "function",
-            "Create a function `setId`"
+            "Create a function `setId` with two parameters, an element and a string. The function will set the element's ID to the given string. The return value of the function must be the given element."
         );
 
         var p = document.createElement("p");
 
-        assert.notOk(
+      assert.notOk(
           p.id,
           "Before running, p has no Id."
         );
 
-        var q = setId(p);
+        var q = setId(p, "lalala");
 
         assert.strictEqual(
-          p.id,
-          "lalala",
-          "After running, ID is lalala.  The function should take one parameter, which is the element to be changed, and it should return that element."
+          q,
+          p,
+          "The function must return its element parameter."
         );
 
         assert.strictEqual(
-          q.id,
           p.id,
-          "If this test fails it's because you're not returning the element as required."
+          "lalala"
         );
 
+        setId(p, "foobarbaz");
+
+        assert.strictEqual(
+          p.id,
+          "foobarbaz"
+        );
     }
 );
 
@@ -165,33 +164,35 @@ QUnit.test("setTheClass",
 
         assert.ok(
             typeof setClass === "function",
-            "Create a function `setClass`"
+            "Create a function `setClass` with two parameters, an element and a string. The function will set the element's class to the given string. The return value of the function must be the given element."
         );
 
         var p = document.getElementById("setmyclass");
 
         assert.notOk(
-          p.className,
-          "Before running, p has no class."
+          p.className
         );
 
-        setClass(p, "banal");
+        var q = setClass(p, "banal");
+
+        assert.strictEqual(
+          q,
+          p,
+          "The function must return its element parameter."
+        );
 
         assert.strictEqual(
           p.className,
-          "banal",
-          "After running, class is `banal`.  The function should take two parameters, the first being the element to be changed, and the second being the value to change it to."
+          "banal"
         );
 
         setClass(p, "interesting");
 
         assert.strictEqual(
           p.className,
-          "interesting",
-          "After running, class is `interesting`.  The function should take two parameters, the first being the element to be changed, and the second being the value to chaneg it to."
+          "interesting"
         );
 
-        // so, why do you think we're using className here?
         window.setmyclass.parentElement.classList.add("done");
     }
 );
@@ -202,53 +203,55 @@ QUnit.test("addAClass",
 
         assert.ok(
             typeof addAClass === "function",
-            "Create a function `addAClass`"
+            "Create a function `addAClass` with two parameters, an element and a string. The function will add the given string's value to the element's classes. The return value of the function must be the given element."
         );
 
         var p = document.getElementById("wantaborder");
 
         assert.strictEqual(
           p.classList.length,
-          1,
-          "Before running, p has one class."
+          1
         );
 
         assert.strictEqual(
-          p.classList[0],
-          "greatcontent",
-          "Before running, p has the class `greatcontent`."
+          p.className,
+          "greatcontent"
         );
 
+        var q = addAClass(p, "excellence");
 
-        addAClass(p, "excellence");
+        assert.strictEqual(
+          q,
+          p,
+          "The function must return its element parameter."
+        );
+
 
         assert.strictEqual(
           p.classList.length,
-          2,
-          "The function addAClass must accept two parameters, first, an element to which a class is to be added, and second, a string that is the classname to be added.  e.g. After running, p has two classes.  [It should now have a pretty dotted border.]"
+          2
         );
 
         assert.ok(
-          arr(p.classList).indexOf("excellence") >= 0,
-          "After running, the array of classes contains `excellence`."
+          p.classList.contains("excellence")
         );
 
         addAClass(p, "lovely");
 
         assert.strictEqual(
           p.classList.length,
-          3,
-          "here, the function is called again to ensure classes are added properly and not just replaced."
+          3
         );
 
         assert.ok(
-          arr(p.classList).indexOf("lovely") >= 0,
-          "After running, the array of classes contains `lovely`."
+          p.classList.contains("excellence")
         );
 
+        assert.ok(
+          p.classList.contains("lovely")
+        );
 
         window.wantaborder.parentElement.classList.add("done");
-
     }
 );
 
@@ -260,36 +263,36 @@ QUnit.test("removeAClass",
 
         assert.ok(
             typeof removeAClass === "function",
-            "Create a function `removeAClass`"
+            "Create a function `removeAClass` with two parameters, an element and a string. The function will remove the given string's value from the element's classes. The return value of the function must be the given element."
         );
 
         var p = document.getElementById("helpme");
 
         assert.strictEqual(
           p.classList.length,
-          3,
-          "Before running, p has three classes."
+          3
         );
 
 
         assert.ok(
-          arr(p.classList).indexOf("downer") >= 0,
+          p.classList.contains("downer"),
           "Before running, the array of classes contains `downer`."
         );
 
         removeAClass(p, "downer");
 
+        assert.notOk(
+          p.classList.contains("downer")
+        );
+
         assert.strictEqual(
-          arr(p.classList).indexOf("downer"),
-          -1,
-          "The removeAClass function must accept two parameters, first, an element from which a class is to be removed, and a string name that is the classname to be removed from the element.  e.g. After running, the array of classes must not contain `downer`.  [In the page the content will no longer be black and purple.]"
+          p.classList.length,
+          2
         );
 
         p.parentElement.classList.add("done");
-
     }
 );
-
 
 
 
