@@ -24,6 +24,55 @@ function sn() {
     return "1";
 }
 
+function addTo() {
+  document.querySelector("#addto").textContent += " Yes!";
+}
+
+function replaceText() {
+  document.querySelector("#replacethis").textContent = "The text has been replaced.";
+}
+
+
+function moreBears() {
+  document.querySelector("#animals").src = "http://placebear.com/400/200";
+  document.querySelector("#animals").alt = "A bear.";
+
+}
+
+function findElementById(id) {
+  return document.querySelector("#"+id);
+}
+
+function findElementByQuery(query) {
+  return document.querySelectorAll(query);
+}
+
+function setId(x) {
+  x.id="lalala";
+  return x;
+}
+
+function filler(where, what) {
+  for (var i = 0; i < what.length; i++) {
+    var li = document.createElement("li");
+    li.textContent = what[i];
+    where.appendChild(li);
+  }
+}
+
+function setClass(elem, c) {
+  elem.className = c;
+}
+
+function addAClass(elem, c) {
+  elem.classList.add(c);
+}
+
+function removeAClass(elem, c) {
+  elem.classList.remove(c);
+}
+
+
 function mutateMain() {
   var main = document.querySelector("main");
   var p = document.createElement("p");
