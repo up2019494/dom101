@@ -262,6 +262,85 @@ QUnit.test("setTheClass",
 );
 
 
+QUnit.test("addAClass",
+    function(assert) {
+
+        assert.ok(
+            typeof addAClass === "function",
+            "Create a function `addAClass`"
+        );
+
+        var p = document.getElementById("wantaborder");
+
+        assert.strictEqual(
+          p.classList.length,
+          1,
+          "Before running, p has one class."
+        );
+
+        assert.strictEqual(
+          p.classList[0],
+          "greatcontent",
+          "Before running, p has the class `greatcontent`."
+        );
+
+
+        addAClass(p, "excellence");
+
+        assert.strictEqual(
+          p.classList.length,
+          2,
+          "The function addAClass must accept two parameters, first, an element to which a class is to be added, and second, a string that is the classname to be added.  e.g. After running, p has two classes.  [It should now have a pretty dotted border.]"
+        );
+
+
+        assert.ok(
+          arr(p.classList).indexOf("excellence") >= 0,
+          "After running, the array of classes contains `excellence`."
+        );
+
+    }
+);
+
+
+
+
+QUnit.test("removeAClass",
+    function(assert) {
+
+        assert.ok(
+            typeof removeAClass === "function",
+            "Create a function `removeAClass`"
+        );
+
+        var p = document.getElementById("helpme");
+
+        assert.strictEqual(
+          p.classList.length,
+          3,
+          "Before running, p has three classes."
+        );
+
+
+        assert.ok(
+          arr(p.classList).indexOf("downer") >= 0,
+          "Before running, the array of classes contains `downer`."
+        );
+
+        removeAClass(p, "downer");
+
+        assert.strictEqual(
+          arr(p.classList).indexOf("downer"),
+          -1,
+          "The removeAClass function must accept two parameters, first, an element from which a class is to be removed, and a string name that is the classname to be removed from the element.  e.g. After running, the array of classes must not contain `downer`.  [In the page the content will no longer be black and purple.]"
+        );
+
+
+    }
+);
+
+
+
 QUnit.test("listMover",
     function(assert) {
 
