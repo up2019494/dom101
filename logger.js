@@ -9,7 +9,7 @@ var
   runRecord = {
     "id": runid,
     "uid": id(),
-    "topic": "topic"+window.topic,
+    "topic": window.topic,
     "time": now,
     "browser": {
       // record details about what kind of dev platform is being used
@@ -41,8 +41,16 @@ QUnit.log(
     // record the individual test
     tests.push(details);
 
-    runRecord[details.result ? "testsSucceeded" : "testsFailed"]
-      .push(details.moduleid + '/' + details.name + '#' + details.order);
+    var testName = details.moduleid + '/' + details.name;
+    // if a test fails any assertion, it will be recorded as failed
+    if (details.result) {
+      if (runRecord.testsFailed.indexOf(testName) === -1 &&
+          runRecord.testsSucceeded.indexOf(testName) === -1) runRecord.testsSucceeded.push(testName);
+    } else {
+      if (runRecord.testsFailed.indexOf(testName) === -1) runRecord.testsFailed.push(testName);
+      // remove a failed test from the list of succeeded tests
+      runRecord.testsSucceeded = runRecord.testsSucceeded.filter(function (val) { return val !== testName; });
+    }
   }
 );
 
