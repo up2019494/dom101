@@ -24,12 +24,12 @@ function sn() {
     return "1";
 }
 
-function addTo() {
-  document.querySelector("#addto").textContent += " Yes!";
+function addTextTo(el, str) {
+  el.textContent += str;
 }
 
-function replaceText() {
-  document.querySelector("#replacethis").textContent = "The text has been replaced.";
+function replaceText(a,b) {
+  a.textContent = b;
 }
 
 
@@ -47,8 +47,8 @@ function findElementByQuery(query) {
   return document.querySelectorAll(query);
 }
 
-function setId(x) {
-  x.id="lalala";
+function setId(x, s) {
+  x.id=s;
   return x;
 }
 
@@ -61,15 +61,18 @@ function filler(where, what) {
 }
 
 function setClass(elem, c) {
-  elem.className = c;
+  elem.classList = c;
+  return elem;
 }
 
 function addAClass(elem, c) {
   elem.classList.add(c);
+  return elem;
 }
 
 function removeAClass(elem, c) {
   elem.classList.remove(c);
+  return elem;
 }
 
 
@@ -116,3 +119,6 @@ function removeAll(selector) {
     removables[i].parentElement.removeChild(removables[i]);
   }
 }
+
+function findElementById(id) { return document.getElementById(id); }
+function findElementByQuery(id) { return document.querySelectorAll(id); }
