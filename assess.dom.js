@@ -579,6 +579,10 @@ QUnit.test("listFiller",
 
         for (var i = 0; i < ul.children.length; i++) {
             assert.strictEqual(
+                ul.children[i].tagName,
+                "LI"
+            );
+            assert.strictEqual(
                 ul.children[i].textContent,
                 entries[i],
                 "Text in each element should match the text in the array."
