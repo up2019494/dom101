@@ -12,16 +12,16 @@
 'use strict';
 
 function id() {
-    return "1";
+    return "Replace This With Your Student ID";
     // e.g. return "UP654321";
 }
 
 function fn() {
-    return "1";
+    return "Replace This With Your First Name";
 }
 
 function sn() {
-    return "1";
+    return "Replace This With Your Surname";
 }
 
 // add your functions here
