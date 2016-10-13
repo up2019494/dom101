@@ -251,6 +251,33 @@ QUnit.test("addAClass",
             p.classList.contains("lovely")
         );
 
+
+        p = document.createElement("header");
+
+        assert.strictEqual(
+            p.classList.length,
+            0
+        );
+
+        var q = addAClass(p, "excellence");
+
+        assert.strictEqual(
+            q,
+            p,
+            "The function must return its element parameter."
+        );
+
+
+        assert.strictEqual(
+            p.classList.length,
+            1
+        );
+
+        assert.ok(
+            p.classList.contains("excellence")
+        );
+
+
         window.wantaborder.parentElement.classList.add("done");
     }
 );
