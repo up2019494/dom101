@@ -701,7 +701,7 @@ QUnit.test("form elements",
     function(assert) {
         assert.ok(
             typeof getUserData === "function",
-            "Write a function `getUserData` that returns an object with information from the #name, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: '30', student: true }."
+            "Write a function `getUserData` that returns an object with information from the #username, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: '30', student: true }."
         );
 
         var user = getUserData();
