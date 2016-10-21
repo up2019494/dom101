@@ -464,8 +464,8 @@ QUnit.test("reverseList",
         );
 
         assert.strictEqual(
-            window.reversemetoo,
             returnedList,
+            window.reversemetoo,
             "The selected element is returned."
         );
 
