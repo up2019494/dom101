@@ -2,12 +2,18 @@
 <meta charset="utf-8">
 <title>JS Bin</title>
 
-<p id="ael" >Hello Event World</p>
+<p>Hello Event World</p>
+<p>TIL that events can be useful.</p>
+<p>etc.</p>
 
 <script>
-  function myEventHandler(e) {
+  function shout(e) {
   	console.log(e.target.textContent);
   }
 
-  window.ael.addEventListener("click", myEventHandler);
+  const paras = document.querySelectorAll("p");
+
+  for (let p of paras) {
+  	p.addEventListener("click", shout);
+  }
 </script>

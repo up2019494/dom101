@@ -2,12 +2,18 @@
 <meta charset="utf-8">
 <title>JS Bin</title>
 
-<p id="ael" >Hello Event World</p>
+<p id=example>Hello Event World</p>
 
 <script>
-  function myEventHandler(e) {
+  function shout(e) {
   	console.log(e.target.textContent);
   }
 
-  window.ael.addEventListener("click", myEventHandler);
+  function shoutOnce(e) {
+  	console.log(e.target.textContent);
+  	e.target.removeEventListener("click", shoutOnce);
+  }
+
+  window.example.addEventListener("click", shout);
+  window.example.addEventListener("click", shoutOnce);
 </script>

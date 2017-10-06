@@ -2,11 +2,12 @@
 <meta charset="utf-8">
 <title>JS Bin</title>
 
-<p onclick="myEventHandler(event)">Hello</p>
+<p id=example>Hello Event World</p>
 
 <script>
-  function myEventHandler(e) {
+  function shout(e) {
   	console.log(e.target.textContent);
   }
-  window.xhew.onclick = myEventHandler;
+
+  window.example.addEventLstener("click", shout);
 </script>
