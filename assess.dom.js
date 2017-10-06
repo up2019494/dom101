@@ -24,7 +24,7 @@ QUnit.test("adding text",
         addTextTo( document.querySelector("#addto"), ' Yes!' );
         assert.strictEqual(
           document.getElementById('addto').textContent,
-          "Does it work yet? No! Yes!"
+          "Does it work yet? Maybe! Yes!"
         );
 
         window.addto.parentElement.classList.add("done");
