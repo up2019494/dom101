@@ -238,7 +238,7 @@ QUnit.test("findElementById",
             window.selectus
         );
 
-        assert.strictEqual(
+        assert.equal(
             findElementById('mustnotexist'),
             null
         );
