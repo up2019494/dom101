@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>JS Bin</title>
+
+<p>Hello Event World</p>
+<p>TIL that events can be useful.</p>
+<p>etc.</p>
+
+
+<script>
+  function autoHandler(e) {
+  	console.log(e.target.textContent);
+  }
+
+  var paras = document.getElementsByTagName("p");
+
+  for (let p of paras) {
+  	p.onclick = autoHandler;
+  }
+</script>
