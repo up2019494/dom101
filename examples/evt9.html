@@ -21,7 +21,6 @@
   function react(e) {
     e.target.style.top = `${Math.random()*95}vh`;
     e.target.style.left = `${Math.random()*95}vw`;
-  	console.log(e.target.textContent);
   }
 
   function record(e) {
@@ -33,5 +32,4 @@
   window.example.addEventListener("mouseover", react);
   window.example.addEventListener("click", react);
   window.example.addEventListener("click", record);
-
 </script>
