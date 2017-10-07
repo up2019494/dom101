@@ -1,8 +1,8 @@
 # The Document Object Model
 
-* Download a zip of this `ws_dom` repository or (preferably) clone it thus:
+* Use git to clone this `ws_dom` repository (or if that's not possible download a zip):
 ```bash
 git clone https://github.com/portsoc/ws_dom.git
 ```
-*  From your new local `ws_dom` folder, open `index.html` in a browser to see which tests fail.
-*  Edit `index.js`; improving and adding code until all the tests pass.
+* From your new local `ws_dom` folder, open `index.html` in a browser to see which tests fail.
+* Edit `index.js`; improving and adding code until all the tests pass.
