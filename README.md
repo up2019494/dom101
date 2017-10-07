@@ -1,6 +1,6 @@
 # The Document Object Model
 
-* Use git to clone this `ws_dom` repository (or if that's not possible download a zip):
+* Use git to clone this `ws_dom` repository (or if that's not possible download a zip - you shoudl prefer and aim to use git from now on):
 ```bash
 git clone https://github.com/portsoc/ws_dom.git
 ```
