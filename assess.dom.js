@@ -288,7 +288,7 @@ QUnit.test("reverseList",
 
         assert.ok(
             typeof reverseList === "function",
-            "Create a function `reverseList` that can reverse the content of a list.  The function should take one parameter which is a selector, used to choose which list is reversed (select the list (the UL or OL) not the list items).  Return the selected element."
+            "Create a function `reverseList` that can reverse the content of a list (a UL or OL element).  The function should take one parameter, which is a selector used to find the list whose children should be reversed.  Return the selected element."
         );
 
         assert.strictEqual(
