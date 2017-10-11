@@ -87,7 +87,7 @@ QUnit.test("setAttributes",
 
 
 
-QUnit.test("setTheId",
+QUnit.test("setId",
     function(assert) {
 
         assert.ok(
@@ -109,7 +109,7 @@ QUnit.test("setTheId",
 
 
 
-QUnit.test("setTheClass",
+QUnit.test("setClass",
     function(assert) {
 
         assert.ok(
