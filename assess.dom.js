@@ -9,31 +9,6 @@ function arr(a) {
 }
 
 
-QUnit.test("adding text",
-    function(assert) {
-        assert.ok(
-            typeof addTextTo === "function",
-            "Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element."
-        );
-
-        assert.strictEqual( window.addto.textContent, "Does it work yet?" );
-
-        addTextTo( window.addto, ' Maybe!' );
-        assert.strictEqual( window.addto.textContent, "Does it work yet? Maybe!" );
-
-        addTextTo( document.querySelector("#addto"), ' Yes!' );
-        assert.strictEqual(
-          document.getElementById('addto').textContent,
-          "Does it work yet? Maybe! Yes!"
-        );
-
-        window.addto.parentElement.classList.add("done");
-
-    }
-);
-
-
-
 QUnit.test("replace text",
     function(assert) {
         assert.ok(
@@ -61,6 +36,29 @@ QUnit.test("replace text",
         );
 
         window.replacethis.parentElement.classList.add("done");
+    }
+);
+
+QUnit.test("adding text",
+    function(assert) {
+        assert.ok(
+            typeof addTextTo === "function",
+            "Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element."
+        );
+
+        assert.strictEqual( window.addto.textContent, "Does it work yet?" );
+
+        addTextTo( window.addto, ' Maybe!' );
+        assert.strictEqual( window.addto.textContent, "Does it work yet? Maybe!" );
+
+        addTextTo( document.querySelector("#addto"), ' Yes!' );
+        assert.strictEqual(
+          document.getElementById('addto').textContent,
+          "Does it work yet? Maybe! Yes!"
+        );
+
+        window.addto.parentElement.classList.add("done");
+
     }
 );
 
