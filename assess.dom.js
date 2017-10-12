@@ -68,12 +68,12 @@ QUnit.test("setAttributes",
     function(assert) {
         assert.ok(
             typeof moreBears === "function",
-            "Create a function `moreBears` that replaces the image of a kitten with the image of a bear. Find the image of the kitten and then set its source URL to 'http://placebear.com/400/200', its alternative text to 'A bear.', and its title to 'A BEAR!'."
+            "Create a function `moreBears` that replaces the default image with the image of a bear.  Your function should (for the 'animals' element) set its source URL to 'http://placebear.com/400/200', its alternative text to 'A bear.', and its title to 'A BEAR!'."
         );
 
-        assert.strictEqual( window.animals.src, "http://placekitten.com/400/200" );
-        assert.strictEqual( window.animals.alt, "A kitten." );
-        assert.strictEqual( window.animals.title, "Meow!" );
+        assert.strictEqual( window.animals.src, "https://dummyimage.com/600x400/FF6900/fff.png" );
+        assert.strictEqual( window.animals.alt, "Not a bear..." );
+        assert.strictEqual( window.animals.title, "Not a bear..." );
 
         moreBears();
 
