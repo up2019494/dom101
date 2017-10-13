@@ -249,31 +249,39 @@ QUnit.test("findElementById",
 
 
 
+// TODO: this test also accepts findElementByQuery because
+// that's what we used to call it until 2017-10-13
+// when we can drop this special case, remove the first lines of the test
 
-QUnit.test("findElementByQuery",
+
+QUnit.test("findElementsByQuery",
     function(assert) {
+
+        // remove these two lines
+        if (findElementsByQuery == null) findElementsByQuery = findElementByQuery;
+
         assert.ok(
-            typeof findElementByQuery === "function",
-            "Create a function `findElementByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
+            typeof findElementsByQuery === "function",
+            "Create a function `findElementsByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
         );
 
         assert.deepEqual(
-            arr(findElementByQuery('#thisisaparagraph')), [window.thisisaparagraph]
+            arr(findElementsByQuery('#thisisaparagraph')), [window.thisisaparagraph]
         );
 
 
         assert.deepEqual(
-            arr(findElementByQuery('#selectus *')),
+            arr(findElementsByQuery('#selectus *')),
             arr(window.selectus.children)
         );
 
         assert.deepEqual(
-            arr(findElementByQuery('.selectus')),
+            arr(findElementsByQuery('.selectus')),
             arr(window.selectus.getElementsByTagName('P'))
         );
 
         assert.deepEqual(
-            arr(findElementByQuery('mustnotexist')), []
+            arr(findElementsByQuery('mustnotexist')), []
         );
     }
 );
