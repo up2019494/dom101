@@ -10,7 +10,7 @@
   }
 
   function shoutOnce(e) {
-  	console.log(e.target.textContent);
+  	console.log(e.target.textContent, "only once");
   	e.target.removeEventListener("click", shoutOnce);
   }
 
