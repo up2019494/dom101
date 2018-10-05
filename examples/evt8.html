@@ -9,8 +9,9 @@
     position: absolute;
     width: 10vw;
     height: 10vh;
-    top: 45vh;
-    left: 45vw;
+    top: 0;
+    left: 0;
+    transform: translate(45vw, 45vh);
   }
 </style>
 
@@ -18,9 +19,9 @@
 
 <script>
   function react(e) {
-    e.target.style.top = `${Math.random()*95}vh`;
-    e.target.style.left = `${Math.random()*95}vw`;
+    e.target.style.transform =
+      `translate(${Math.random()*90}vw, ${Math.random()*90}vh)`;
   }
 
-  window.example.addEventListener("mouseover", react);
+  window.example.addEventListener("mouseenter", react);
 </script>
