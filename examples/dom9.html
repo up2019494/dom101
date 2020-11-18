@@ -20,13 +20,13 @@
 <script>
   // move all paras to destination one
   const paras = document.querySelectorAll("p");
-  const dest1 = document.querySelector('#dest1');
+  const dest1 = document.querySelector("#dest1");
 
   for (const p of paras) {
     dest1.appendChild(p);
   }
 
   // move one element to destination two
-  const dest2 = document.querySelector('#dest2');
-  dest2.appendChild(document.querySelector('#moveme'));
+  const dest2 = document.querySelector("#dest2");
+  dest2.appendChild(document.querySelector("#moveme"));
 </script>
