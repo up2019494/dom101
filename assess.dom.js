@@ -414,7 +414,7 @@ test(
 
 
 test(
-  'Write a function `dupe` that accepts one parameter, a selector.  The function should duplicate the element chosen by the selector (and any children of it) inside its parent.',
+  'Write a function `dupe` that accepts one parameter, a selector.  The function should duplicate the element chosen by the selector (and any children of it) and append it to its parent.',
   function (assert) {
     if (!assert.functionExists('dupe', ['selector'])) return;
 
