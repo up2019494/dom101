@@ -12,7 +12,7 @@ test(
   function (assert) {
     if (!assert.functionExists('replaceText', ['elem', 'str'])) return;
 
-    const replaceThis = document.querySelector('#replaceThis');
+    const replaceThis = document.querySelector('#replacethis');
 
     assert.strictEqual(
       replaceThis.textContent,
@@ -38,7 +38,7 @@ test(
 test(
   'Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element.',
   function (assert) {
-    if (!assert.functionExists('addtextTo', ['elem', 'str'])) return;
+    if (!assert.functionExists('addTextTo', ['elem', 'str'])) return;
 
     const addTo = document.querySelector('#addto');
 
@@ -368,7 +368,7 @@ test(
 test(
   'Write a function `filler` that accepts two parameters, the first is a list element that should be added to, the second is an array of candidate strings that will be turned into list items.',
   function (assert) {
-    if (!assert.functionExists('filler', ['appddToThis', 'candidates'])) return;
+    if (!assert.functionExists('filler', ['list', 'candidates'])) return;
 
     const ul = document.getElementById('fillthislist');
 
@@ -480,7 +480,7 @@ test(
 test(
   "Write a function `getUserData` that returns an object with information from the #username, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: 30, student: true }.",
   function (assert) {
-    if (!assert.functionExists('getUserData', ['selector'])) return;
+    if (!assert.functionExists('getUserData')) return;
 
     let user = getUserData();
 
