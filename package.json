@@ -10,8 +10,15 @@
     "Matt Dennis <matt.dennis@port.ac.uk>"
   ],
   "license": "UNLICENSED",
-  "jshintConfig": {
-    "globalstrict": true,
-    "predef": ["QUnit", "window", "document"]
+  "eslintConfig": {
+    "extends": "portsoc",
+    "root": true,
+    "globals": {
+      "QUnit": "writable"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-portsoc": "^0.6.0"
   }
 }
