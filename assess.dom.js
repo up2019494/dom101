@@ -1,55 +1,52 @@
 "use strict";
-
-QUnit.module("DOM");
-
+QUnit.config.reorder = false;
+const { test } = QUnit;
 
 // turns an array-like into an array
 function arr(a) {
     return Array.prototype.slice.call(a);
 }
 
-
-QUnit.test("replace text",
+test(
+    "Create a function replaceText which accepts two parameters: an element and a string. The function should set the content of the given element to the given string.",
     function(assert) {
-        assert.ok(
-            typeof replaceText === "function",
-            "Create a function replaceText which accepts two parameters: an element and a string. The function should set the content of the given element to the given string."
-        );
+        if (!assert.functionExists( 'replaceText', ['elem', 'str'] )) return;
+
+        const replaceThis = document.querySelector('#replaceThis');
 
         assert.strictEqual(
-            window.replacethis.textContent,
+            replacethis.textContent,
             "𝔯𝔢𝔭𝔩𝔞𝔠𝔢 𝔱𝔥𝔦𝔰"
         );
 
-        replaceText(window.replacethis, "The text has been replaced.");
+        replaceText(replacethis, "The text has been replaced.");
 
         assert.strictEqual(
-            window.replacethis.textContent,
+            replacethis.textContent,
             "The text has been replaced."
         );
 
-        replaceText(window.replacethis, "The text has been replaced twice.");
+        replaceText(replacethis, "The text has been replaced twice.");
 
         assert.strictEqual(
-            window.replacethis.textContent,
+            replacethis.textContent,
             "The text has been replaced twice."
         );
 
-        window.replacethis.parentElement.classList.add("done");
     }
 );
 
-QUnit.test("adding text",
+test(
+    "Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element.",
     function(assert) {
-        assert.ok(
-            typeof addTextTo === "function",
-            "Create a function addTextTo which gets two parameters: an element and a string. The function should append the given string to the content of the given element."
-        );
+        if (!assert.functionExists( 'addtextTo', ['elem', 'str'] )) return;
 
-        assert.strictEqual( window.addto.textContent, "Does it work yet?" );
+        const addTo = document.querySelector('#addto');
 
-        addTextTo( window.addto, ' Maybe!' );
-        assert.strictEqual( window.addto.textContent, "Does it work yet? Maybe!" );
+        assert.strictEqual( addTo.textContent, "Does it work yet?" );
+
+        addTextTo( addTo, ' Maybe!' );
+        assert.strictEqual( addTo.textContent, "Does it work yet? Maybe!" );
 
         addTextTo( document.querySelector("#addto"), ' Yes!' );
         assert.strictEqual(
@@ -57,43 +54,38 @@ QUnit.test("adding text",
           "Does it work yet? Maybe! Yes!"
         );
 
-        window.addto.parentElement.classList.add("done");
-
     }
 );
 
 
 
-QUnit.test("setAttributes",
+test(
+    "Create a function `moreBears` that replaces the default image with the image of a bear.  Your function should (for the 'animals' element) set its source URL to 'http://placebear.com/400/200', its alternative text to 'A bear.', and its title to 'A BEAR!'.",
     function(assert) {
-        assert.ok(
-            typeof moreBears === "function",
-            "Create a function `moreBears` that replaces the default image with the image of a bear.  Your function should (for the 'animals' element) set its source URL to 'http://placebear.com/400/200', its alternative text to 'A bear.', and its title to 'A BEAR!'."
-        );
 
-        assert.strictEqual( window.animals.src, "https://dummyimage.com/600x400/FF6900/fff.png" );
-        assert.strictEqual( window.animals.alt, "Not a bear..." );
-        assert.strictEqual( window.animals.title, "Not a bear..." );
+        if (!assert.functionExists( 'moreBears' )) return;
+
+        const animals = document.querySelector('#animals');
+
+        assert.strictEqual( animals.src, "https://dummyimage.com/600x400/FF6900/fff.png" );
+        assert.strictEqual( animals.alt, "Not a bear..." );
+        assert.strictEqual( animals.title, "Not a bear..." );
 
         moreBears();
 
-        assert.strictEqual( window.animals.src, "http://placebear.com/400/200" );
-        assert.strictEqual( window.animals.alt, "A bear." );
-        assert.strictEqual( window.animals.title, "A BEAR!" );
+        assert.strictEqual( animals.src, "http://placebear.com/400/200" );
+        assert.strictEqual( animals.alt, "A bear." );
+        assert.strictEqual( animals.title, "A BEAR!" );
 
-        window.animals.parentElement.classList.add("done");
     }
 );
 
 
 
-QUnit.test("setId",
+test(
+    "Create a function `setId` with two parameters, an element and a string. The function will set the element's ID to the given string. The return value of the function must be the given element.",
     function(assert) {
-
-        assert.ok(
-            typeof setId === "function",
-            "Create a function `setId` with two parameters, an element and a string. The function will set the element's ID to the given string. The return value of the function must be the given element."
-        );
+        if (!assert.functionExists( 'setId', ['elem', 'str'] )) return;
 
         let p = document.createElement("p");
         assert.notOk( p.id, "Before running, p has no Id." );
@@ -109,13 +101,10 @@ QUnit.test("setId",
 
 
 
-QUnit.test("setClass",
+test(
+    "Create a function `setClass` with two parameters, an element and a string. The function will set the element's class to the given string. The return value of the function must be the given element.",
     function(assert) {
-
-        assert.ok(
-            typeof setClass === "function",
-            "Create a function `setClass` with two parameters, an element and a string. The function will set the element's class to the given string. The return value of the function must be the given element."
-        );
+        if (!assert.functionExists( 'setClass', ['elem', 'str'] )) return;
 
         let p = document.getElementById("setmyclass");
         assert.notOk( p.className );
@@ -127,18 +116,15 @@ QUnit.test("setClass",
         setClass(p, "interesting");
         assert.strictEqual( p.className, "interesting" );
 
-        window.setmyclass.parentElement.classList.add("done");
     }
 );
 
 
-QUnit.test("addAClass",
+test(
+    "Create a function `addAClass` with two parameters, an element and a string. The function will add the given string's value to the element's classes. The return value of the function must be the given element.",
     function(assert) {
 
-        assert.ok(
-            typeof addAClass === "function",
-            "Create a function `addAClass` with two parameters, an element and a string. The function will add the given string's value to the element's classes. The return value of the function must be the given element."
-        );
+        if (!assert.functionExists( 'addAClass', ['elem', 'str'] )) return;
 
         let p = document.getElementById("wantaborder");
         assert.strictEqual( p.classList.length, 1 );
@@ -162,20 +148,17 @@ QUnit.test("addAClass",
         assert.strictEqual( q, p, "The function must return its element parameter." );
         assert.ok( p.classList.contains("excellence") );
 
-        window.wantaborder.parentElement.classList.add("done");
     }
 );
 
 
 
 
-QUnit.test("removeAClass",
+test(
+    "Create a function `removeAClass` with two parameters, an element and a string. The function will remove the given string's value from the element's classes. The return value of the function must be the given element.",
     function(assert) {
 
-        assert.ok(
-            typeof removeAClass === "function",
-            "Create a function `removeAClass` with two parameters, an element and a string. The function will remove the given string's value from the element's classes. The return value of the function must be the given element."
-        );
+        if (!assert.functionExists( 'removeAClass', ['elem', 'str'] )) return;
 
         let p = document.getElementById("helpme");
         assert.strictEqual( p.classList.length, 3 );
@@ -188,7 +171,6 @@ QUnit.test("removeAClass",
         assert.notOk( p.classList.contains("downer") );
         assert.strictEqual( p.classList.length, 2 );
 
-        p.parentElement.classList.add("done");
     }
 );
 
@@ -199,12 +181,10 @@ QUnit.test("removeAClass",
 
 
 
-QUnit.test("creating elements",
+test(
+    "Write a function `newElement` which, given one parameter called name, returns a newly created element with that tag name.",
     function(assert) {
-        assert.ok(
-            typeof newElement === "function",
-            "Write a function `newElement` which, given one parameter called name, returns a newly created element with that tag name."
-        );
+        if (!assert.functionExists( 'newElement', ['name'] )) return;
 
         let x = newElement('li');
         assert.strictEqual( x.parentElement, null );
@@ -219,21 +199,22 @@ QUnit.test("creating elements",
 
 
 
-QUnit.test("findElementById",
+test(
+    "Create a function `findElementById` which, given one parameter called id, returns the element that has that id.",
     function(assert) {
-        assert.ok(
-            typeof findElementById === "function",
-            "Create a function `findElementById` which, given one parameter called ID, returns the element that has that id."
-        );
+        if (!assert.functionExists( 'findElementById', ['id'] )) return;
+
+        const thisisaparagraph = document.querySelector('#thisisaparagraph');
+        const selectus = document.querySelector('#selectus');
 
         assert.strictEqual(
             findElementById('thisisaparagraph'),
-            window.thisisaparagraph
+            thisisaparagraph
         );
 
         assert.strictEqual(
             findElementById('selectus'),
-            window.selectus
+            selectus
         );
 
         assert.equal(
@@ -241,43 +222,33 @@ QUnit.test("findElementById",
             null
         );
 
-        window.thisisaparagraph.parentElement.classList.add("done");
-        window.selectus.classList.add("done");
     }
 
 );
 
 
 
-// TODO: this test also accepts findElementByQuery because
-// that's what we used to call it until 2017-10-13
-// when we can drop this special case, remove the first lines of the test
-
-
-QUnit.test("findElementsByQuery",
+test(
+    "Create a function `findElementsByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter.",
     function(assert) {
+        if (!assert.functionExists( 'findElementsByQuery', ['query'] )) return;
 
-        // remove these two lines
-        if (findElementsByQuery == null) findElementsByQuery = findElementByQuery;
-
-        assert.ok(
-            typeof findElementsByQuery === "function",
-            "Create a function `findElementsByQuery` which, given one parameter called query, returns all the elements that match the query selector in that parameter."
-        );
+        const thisisaparagraph = document.querySelector('#thisisaparagraph');
+        const selectus = document.querySelector('#selectus');
 
         assert.deepEqual(
-            arr(findElementsByQuery('#thisisaparagraph')), [window.thisisaparagraph]
+            arr(findElementsByQuery('#thisisaparagraph')),
+            [thisisaparagraph]
         );
-
 
         assert.deepEqual(
             arr(findElementsByQuery('#selectus *')),
-            arr(window.selectus.children)
+            arr(selectus.children)
         );
 
         assert.deepEqual(
             arr(findElementsByQuery('.selectus')),
-            arr(window.selectus.getElementsByTagName('P'))
+            arr(selectus.getElementsByTagName('P'))
         );
 
         assert.deepEqual(
@@ -289,16 +260,16 @@ QUnit.test("findElementsByQuery",
 
 
 
-QUnit.test("reverseList",
+test(
+    "Create a function `reverseList` that can reverse the content of a list (a UL or OL element).  The function should take one parameter, which is a query selector used to find the list whose children should be reversed.  Return the selected element.",
     function(assert) {
+        if (!assert.functionExists( 'reverseList', ['query'] )) return;
 
-        assert.ok(
-            typeof reverseList === "function",
-            "Create a function `reverseList` that can reverse the content of a list (a UL or OL element).  The function should take one parameter, which is a selector used to find the list whose children should be reversed.  Return the selected element."
-        );
+        const reverseme = document.querySelector('#reverseme');
+        const reversemetoo = document.querySelector('#reversemetoo');
 
         assert.strictEqual(
-            window.reverseme.firstElementChild.textContent,
+            reverseme.firstElementChild.textContent,
             "1",
             "Before running, first element is 1."
         );
@@ -306,13 +277,13 @@ QUnit.test("reverseList",
         reverseList("#reverseme");
 
         assert.strictEqual(
-            window.reverseme.firstElementChild.textContent,
+            reverseme.firstElementChild.textContent,
             "5",
             "After running, first element must be 5."
         );
 
         assert.strictEqual(
-            window.reverseme.lastElementChild.textContent,
+            reverseme.lastElementChild.textContent,
             "1",
             "After running, last element must be 1."
         );
@@ -321,45 +292,45 @@ QUnit.test("reverseList",
         let returnedList = reverseList("#reversemetoo");
 
         assert.strictEqual(
-            window.reversemetoo.firstElementChild.textContent,
+            reversemetoo.firstElementChild.textContent,
             "The Force Awakens",
             "After running again, first element is The Force Awakens."
         );
 
         assert.strictEqual(
             returnedList,
-            window.reversemetoo,
+            reversemetoo,
             "The selected element is returned."
         );
-
-        window.reverseme.parentElement.classList.add("done");
 
     }
 );
 
 
-QUnit.test("listMover",
+test(
+    "Create a function `mover` that accepts two parameters, the first is a selector for the element to move, the second is a selector for the element that it should be appended to.",
     function(assert) {
+        if (!assert.functionExists( 'mover', ['moveThis', 'appendToThis'] )) return;
+
+        const moveme = document.querySelector('#moveme');
+        const listone = document.querySelector('#listone');
+        const listtwo = document.querySelector('#listtwo');
+
 
         assert.ok(
-            typeof mover === "function",
-            "Create a function `mover` that accepts two parameters, the first is a selector for the element to move, the second is a selector for the element that it should be appended to."
-        );
-
-        assert.ok(
-            window.moveme.parentElement == window.listone,
+            moveme.parentElement == listone,
             "Before, `moveme` has `listone` as a parent."
         );
 
 
         assert.strictEqual(
-            window.listone.children.length,
+            listone.children.length,
             4,
             "Before running, list one has 4 elements."
         );
 
         assert.strictEqual(
-            window.listtwo.children.length,
+            listtwo.children.length,
             3,
             "Before running, list two has 3 elements."
         );
@@ -367,32 +338,32 @@ QUnit.test("listMover",
         mover("#moveme", "#listtwo")
 
         assert.strictEqual(
-            window.listone.children.length,
+            listone.children.length,
             3,
             "After running, list one has 3 elements."
         );
 
         assert.strictEqual(
-            window.listtwo.children.length,
+            listtwo.children.length,
             4,
             "After running, list two has 4 elements."
         );
 
         assert.ok(
-            window.moveme.parentElement == window.listtwo,
+            moveme.parentElement == listtwo,
             "After, moveme has a new parent."
         );
 
         mover("#moveme", "#listone")
 
         assert.strictEqual(
-            window.listone.children.length,
+            listone.children.length,
             4,
             "After running again, list one has 4 elements."
         );
 
         assert.strictEqual(
-            window.listtwo.children.length,
+            listtwo.children.length,
             3,
             "Before running again, list one has 3 elements."
         );
@@ -401,24 +372,21 @@ QUnit.test("listMover",
         mover("#moveme", "#listone");
 
         assert.strictEqual(
-            window.listone.children.length,
+            listone.children.length,
             4,
             "After running, list one has 4 elements."
         );
 
         assert.strictEqual(
-            window.listtwo.children.length,
+            listtwo.children.length,
             3,
             "After running, list two has 3 elements."
         );
 
         assert.ok(
-            window.moveme.parentElement == window.listone,
+            moveme.parentElement == listone,
             "After, moveme has a new parent."
         );
-
-
-        window.moveme.parentElement.parentElement.classList.add("done");
 
     }
 );
@@ -426,13 +394,11 @@ QUnit.test("listMover",
 
 
 
-QUnit.test("listFiller",
+test(
+    "Write a function `filler` that accepts two parameters, the first is a list element that should be added to, the second is an array of candidate strings that will be turned into list items.",
     function(assert) {
 
-        assert.ok(
-            typeof filler === "function",
-            "Write a function `filler` that accepts two parameters, the first is a list element that should be added to, the second is an array of strings that will be turned into list items."
-        );
+        if (!assert.functionExists( 'filler', ['appddToThis', 'candidates'] )) return;
 
         let ul = document.getElementById("fillthislist");
 
@@ -474,22 +440,16 @@ QUnit.test("listFiller",
             "There should be exactly four list items if called with an array of four items."
         );
 
-
-        window.fillthislist.parentElement.classList.add("done");
-
     }
 );
 
 
-QUnit.test("duplication",
+test(
+    "Write a function `dupe` that accepts one parameter, a selector.  The function should duplicate the element chosen by the selector (and any children of it) inside its parent.",
     function(assert) {
+        if (!assert.functionExists( 'dupe', ['selector'] )) return;
 
-        let thingToBeDuped = window.dupeme;
-
-        assert.ok(
-            typeof dupe === "function",
-            "Write a function `dupe` that accepts one parameter, a selector.  The function should duplicate the element chosen by the selector (and any children of it) inside its parent."
-        );
+        let thingToBeDuped = document.querySelector('#dupeme');
 
         assert.strictEqual(
             thingToBeDuped.parentElement.children.length,
@@ -519,23 +479,18 @@ QUnit.test("duplication",
             "The two paragraphs should have the same text."
         );
 
-
-        thingToBeDuped.parentElement.classList.add("done");
-
     }
 );
 
 
 
-QUnit.test("removeAllMatchingNodes",
+test(
+    "Write a function `removeAll` that accepts one parameter, a selector.  All nodes that match that selector should be removed.",
     function(assert) {
+        if (!assert.functionExists( 'removeAll', ['selector'] )) return;
 
-        let parent = window.noevens;
 
-        assert.ok(
-            typeof removeAll === "function",
-            "Write a function `removeAll` that accepts one parameter, a selector.  All nodes that match that selector should be removed."
-        );
+        let parent = document.querySelector('#noevens');
 
         removeAll("#noevens p:nth-child(odd)");
 
@@ -555,17 +510,14 @@ QUnit.test("removeAllMatchingNodes",
             );
         }
 
-        parent.classList.add("done");
     }
 );
 
 
-QUnit.test("form elements",
+test(
+    "Write a function `getUserData` that returns an object with information from the #username, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: 30, student: true }.",
     function(assert) {
-        assert.ok(
-            typeof getUserData === "function",
-            "Write a function `getUserData` that returns an object with information from the #username, #speed, #student form input fields. The result should be an object like this: { name: 'john', speed: 30, student: true }."
-        );
+        if (!assert.functionExists( 'getUserData', ['selector'] )) return;
 
         let user = getUserData();
 
@@ -577,9 +529,9 @@ QUnit.test("form elements",
             }
         )
 
-        window.username.value = "Jane";
-        window.speed.value = 100;
-        window.student.checked = false;
+        document.querySelector('#username').value = "Jane";
+        document.querySelector('#speed').value = 100;
+        document.querySelector('#student').checked = false;
 
         user = getUserData();
 
@@ -590,6 +542,6 @@ QUnit.test("form elements",
                 student: false
             }
         )
-        window.username.parentElement.parentElement.classList.add('done');
+
     }
 );
