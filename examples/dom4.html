@@ -6,9 +6,11 @@
 </p>
 
 <script>
-  console.log(window.foo.textContent);
+  const foo = document.querySelector('#foo');
 
-  window.foo.textContent = "bye";
+  console.log(foo.textContent);
 
-  console.log(window.foo.textContent);
+  foo.textContent = "bye";
+
+  console.log(foo.textContent);
 </script>
