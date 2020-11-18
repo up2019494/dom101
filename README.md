@@ -4,7 +4,7 @@
 ```bash
 git clone https://github.com/portsoc/dom102.git
 ```
-* From your new local `don102` folder, open `index.html` in a browser to see the unit tests (which will all fail at first).
+* From your new local `dom102` folder, open `index.html` in a browser to see the unit tests (which will all fail at first).
 * Edit `index.js`; improving and adding code until all the tests pass.
 
 # Examples
