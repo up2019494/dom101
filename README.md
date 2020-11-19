@@ -10,12 +10,12 @@ git clone https://github.com/portsoc/dom102.git
 # Examples
 Examples of DOM access and manipulation
 
-* [DOM example 1](https://portsoc.github.io/dom102/examples/dom1/)
-* [DOM example 2](https://portsoc.github.io/dom102/examples/dom2/)
-* [DOM example 3](https://portsoc.github.io/dom102/examples/dom3/)
-* [DOM example 4](https://portsoc.github.io/dom102/examples/dom4/)
-* [DOM example 5](https://portsoc.github.io/dom102/examples/dom5/)
-* [DOM example 6](https://portsoc.github.io/dom102/examples/dom6/)
-* [DOM example 7](https://portsoc.github.io/dom102/examples/dom7/)
-* [DOM example 8](https://portsoc.github.io/dom102/examples/dom8/)
-* [DOM example 9](https://portsoc.github.io/dom102/examples/dom9/)
+* [DOM example 1](https://portsoc.github.io/dom102/examples/dom1)
+* [DOM example 2](https://portsoc.github.io/dom102/examples/dom2)
+* [DOM example 3](https://portsoc.github.io/dom102/examples/dom3)
+* [DOM example 4](https://portsoc.github.io/dom102/examples/dom4)
+* [DOM example 5](https://portsoc.github.io/dom102/examples/dom5)
+* [DOM example 6](https://portsoc.github.io/dom102/examples/dom6)
+* [DOM example 7](https://portsoc.github.io/dom102/examples/dom7)
+* [DOM example 8](https://portsoc.github.io/dom102/examples/dom8)
+* [DOM example 9](https://portsoc.github.io/dom102/examples/dom9)
