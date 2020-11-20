@@ -33,3 +33,8 @@ function setClass(elem, str){
     elem.className = str;
     return elem;
 }
+
+function addAClass(elem, str){
+    elem.className += ` ${str}`;
+    return elem;
+}
