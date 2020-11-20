@@ -29,6 +29,7 @@ function setId(elem, str){
     elem.id = str;
     return elem;
 }
+
 function setClass(elem, str){
     elem.className = str;
     return elem;
@@ -36,5 +37,10 @@ function setClass(elem, str){
 
 function addAClass(elem, str){
     elem.className += ` ${str}`;
+    return elem;
+}
+
+function removeAClass(elem, str){
+    elem.classList.remove(str);
     return elem;
 }
