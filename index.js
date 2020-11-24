@@ -44,3 +44,73 @@ function removeAClass(elem, str){
     elem.classList.remove(str);
     return elem;
 }
+
+function newElement(name) {
+    const elem = document.createElement(name);
+    return elem;
+}
+
+function findElementById(id) {
+    const elem = document.getElementById(id);
+    return elem;
+/* 
+   This is uglier, but also works..
+
+    const elem = document.querySelector(`#${id}`);
+    return elem;
+
+*/
+}
+
+function findElementsByQuery(query){
+    const elems = document.querySelectorAll(query);
+    return elems;
+}
+
+function reverseList(query){
+    const input_query = document.querySelector(query);
+    const reversed = Array.from(input_query.querySelectorAll('li')).reverse();
+    for(let i = 0; i < reversed.length; i++){
+        input_query.appendChild(reversed[i]);
+    }
+    return input_query;
+}
+
+function mover(moveThis, appendToThis){
+    document.querySelector(appendToThis).appendChild(document.querySelector(moveThis));
+
+}
+
+function filler(list, candidates){
+    let li;
+    for(let i = 0; i < candidates.length; i++){
+        li = document.createElement("li");
+        li.textContent = candidates[i];
+        list.append(li);
+    }
+}
+
+function dupe(selector){
+    const to_dupe = document.querySelector(selector);
+    const parent = to_dupe.parentElement;
+    const duped = to_dupe.cloneNode(true);
+    duped.id = `${to_dupe.id}-copy`;
+    parent.append(duped);
+}
+
+function removeAll(selector){
+    const to_remove = document.querySelectorAll(selector);
+    to_remove.forEach(element => element.remove());
+}
+
+function getUserData(){
+    const username = document.getElementById("username").value;
+    const spd = parseInt(document.getElementById("speed").value);
+    const is_student = document.getElementById("student").checked;
+    const user = {
+        name: username,
+        speed: spd,
+        student: is_student
+    };
+    return user;
+}
