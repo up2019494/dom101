@@ -70,9 +70,7 @@ function findElementsByQuery(query){
 function reverseList(query){
     const input_query = document.querySelector(query);
     const reversed = Array.from(input_query.querySelectorAll('li')).reverse();
-    for(let i = 0; i < reversed.length; i++){
-        input_query.appendChild(reversed[i]);
-    }
+    reversed.forEach(element => input_query.appendChild(element));
     return input_query;
 }
 
